@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lyba Nadeem | GTM Systems &amp; Outbound Automation</title>
-<meta name="description" content="Lyba Nadeem builds source-to-sequence GTM systems using Claude, Apollo, Clay, CRMs, n8n, and email sequencers.">
+<meta name="description" content="Lyba Nadeem builds source-to-sequence GTM systems using Claude Code, Apollo, Clay, CRMs, n8n, and email sequencers.">
+<meta name="theme-color" content="#070B12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lyba Nadeem | GTM Systems Builder">
+<meta property="og:description" content="Independent GTM case studies covering enrichment, fallback logic, AI personalization, CRM handoff, and outbound activation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -339,11 +343,15 @@
   ::selection{background:var(--accent-strong);color:#06100C}
   .wrap{max-width:1180px;padding:0 32px}
 
-  nav{background:rgba(7,11,18,.76);border-color:var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-  nav .wrap{padding-top:15px;padding-bottom:15px}
+  nav{background:rgba(7,11,18,.76);border-color:var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:background .3s ease,box-shadow .3s ease,border-color .3s ease}
+  nav .wrap{padding-top:15px;padding-bottom:15px;transition:padding .3s ease}
+  nav.scrolled{background:rgba(7,11,18,.94);border-color:rgba(167,243,208,.14);box-shadow:0 14px 35px rgba(0,0,0,.28)}
+  nav.scrolled .wrap{padding-top:10px;padding-bottom:10px}
+  .scroll-progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden;pointer-events:none}
+  .scroll-progress span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--accent-strong),#7DD3FC,#C4B5FD);box-shadow:0 0 12px rgba(52,211,153,.45);will-change:transform}
   .brand{font-size:16px;letter-spacing:-.03em;color:#fff}
   .brand span{color:var(--accent-strong)}
-  .brand::after{content:" / GTM SYSTEMS";font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.11em;color:var(--muted);margin-left:10px;vertical-align:2px}
+  .brand::after{content:" / " attr(data-context);font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.11em;color:var(--muted);margin-left:10px;vertical-align:2px}
   .navlinks{gap:8px}
   .navlinks a{display:block;padding:8px 13px;border-radius:999px;font-size:12.5px;color:var(--muted)}
   .navlinks a:hover{color:#fff;background:rgba(255,255,255,.06)}
@@ -353,7 +361,7 @@
   header.hero{padding:100px 0 86px;overflow:hidden}
   header.hero .wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);column-gap:64px;align-items:center}
   header.hero .eyebrow,header.hero .headline,header.hero .hero-sub,header.hero .hero-cta{grid-column:1;min-width:0}
-  header.hero .waterfall{grid-column:2;grid-row:1 / span 4}
+  header.hero .waterfall{grid-column:2;grid-row:1 / span 5}
   .eyebrow{font-size:10.5px;color:var(--accent);border-color:rgba(167,243,208,.22);background:rgba(167,243,208,.07);padding:7px 12px;margin-bottom:24px}
   .eyebrow::before{background:var(--accent-strong);box-shadow:0 0 0 4px rgba(52,211,153,.10)}
   h1.headline{font-size:clamp(45px,5.4vw,70px);line-height:.98;letter-spacing:-.055em;max-width:680px;margin-bottom:25px}
@@ -361,6 +369,11 @@
   .hero-sub{font-size:17px;line-height:1.75;color:var(--muted);max-width:620px;margin-bottom:32px}
   .hero-sub strong{color:#E8EEF7;font-weight:600}
   .hero-cta{margin-bottom:0;gap:12px}
+  .hero-metrics{grid-column:1;display:flex;gap:0;align-items:stretch;margin-top:32px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);overflow:hidden;max-width:620px}
+  .hero-metric{flex:1;padding:14px 16px;border-right:1px solid var(--line)}
+  .hero-metric:last-child{border-right:0}
+  .hero-metric strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:18px;color:#F3F7FA;line-height:1.1;margin-bottom:4px}
+  .hero-metric span{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;line-height:1.4;letter-spacing:.055em;color:var(--muted);text-transform:uppercase}
   .btn{padding:13px 20px;border-radius:10px;font-size:13px;display:inline-flex;align-items:center;justify-content:center}
   .btn-primary{background:var(--accent);color:#07110D;box-shadow:0 12px 35px rgba(52,211,153,.12)}
   .btn-primary:hover{box-shadow:0 14px 34px rgba(52,211,153,.20)}
@@ -383,6 +396,7 @@
   .section-tag{color:var(--accent-2);font-size:10.5px;margin-bottom:13px}
   h2.section-title{font-size:clamp(30px,4vw,46px);font-weight:700;letter-spacing:-.04em;line-height:1.08;max-width:790px;margin-bottom:18px}
   .section-lead{font-size:16px;line-height:1.75;max-width:690px;margin-bottom:42px;color:var(--muted)}
+  .section-title,.page-title{text-wrap:balance}.section-lead,.page-sub{text-wrap:pretty}
 
   .route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .route-card{position:relative;overflow:hidden;min-height:300px;padding:25px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(17,26,40,.92),rgba(11,17,28,.92));transition:transform .2s,border-color .2s,box-shadow .2s}
@@ -441,6 +455,92 @@
   .ns-step{background:#0B121D!important;color:#DFE8F2;border-color:var(--line)!important}
   .ns-target{background:var(--accent)!important;color:#07110D}
 
+  .intro-video-section{padding:72px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(147,197,253,.035),rgba(52,211,153,.025))}
+  .intro-video-grid{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr);gap:54px;align-items:center}
+  .intro-video-copy .section-title{margin-bottom:16px}
+  .intro-video-copy .section-lead{margin-bottom:24px}
+  .intro-video-note{display:flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
+  .intro-video-note::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-strong);box-shadow:0 0 12px rgba(52,211,153,.7)}
+  .intro-player{position:relative;overflow:hidden;aspect-ratio:16/9;border:1px solid var(--line-strong);border-radius:20px;background:#05080D;box-shadow:0 28px 70px rgba(0,0,0,.34)}
+  .intro-player::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(167,243,208,.42),transparent 45%,rgba(147,197,253,.32));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:1}
+  .intro-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .intro-video-fallback{margin-top:13px;text-align:right;font-size:12px;color:var(--muted)}
+  .intro-video-fallback a{color:var(--accent);text-decoration:none;font-weight:600}
+  .intro-video-fallback a:hover{text-decoration:underline}
+
+  .proof-section{padding:88px 0;border-bottom:1px solid var(--line);background:#080D15}
+  .proof-heading{display:grid;grid-template-columns:minmax(0,.8fr) minmax(300px,1.2fr);gap:56px;align-items:end;margin-bottom:34px}
+  .proof-heading .section-title{margin-bottom:0}
+  .proof-heading .section-lead{margin:0;max-width:650px}
+  .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .proof-card{position:relative;overflow:hidden;min-height:310px;padding:26px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(17,26,40,.98),rgba(10,16,26,.96));display:flex;flex-direction:column}
+  .proof-card::after{content:"";position:absolute;width:150px;height:150px;right:-75px;bottom:-85px;border-radius:50%;background:rgba(52,211,153,.08);filter:blur(2px)}
+  .proof-card:nth-child(2)::after{background:rgba(147,197,253,.09)}
+  .proof-card:nth-child(3)::after{background:rgba(196,181,253,.08)}
+  .proof-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.08em;margin-bottom:30px}
+  .proof-title{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:650;letter-spacing:-.02em;color:#F1F5F9;margin-bottom:12px}
+  .proof-desc{font-size:14px;line-height:1.72;color:#B9C5D3;margin-bottom:24px}
+  .proof-evidence{position:relative;z-index:1;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:9.5px;line-height:1.7;letter-spacing:.045em;color:var(--accent-2);text-transform:uppercase}
+
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0 26px}
+  .case-item{padding:16px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.022)}
+  .case-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.07em;color:var(--accent-2);text-transform:uppercase;margin-bottom:7px}
+  .case-item p{font-size:12.5px;line-height:1.6;color:#B8C4D2}
+  .build-status{display:flex;align-items:center;gap:8px;margin-bottom:18px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.055em;color:#8C9AAD;text-transform:uppercase}
+  .build-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-strong);box-shadow:0 0 10px rgba(52,211,153,.55)}
+
+  .engineering-section{background:linear-gradient(180deg,rgba(147,197,253,.035),rgba(52,211,153,.025))}
+  .engineering-head{display:grid;grid-template-columns:minmax(0,.8fr) minmax(300px,1.2fr);gap:56px;align-items:end;margin-bottom:34px}
+  .engineering-head .section-title,.engineering-head .section-lead{margin-bottom:0}
+  .control-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .control-card{padding:22px;border:1px solid var(--line);border-radius:16px;background:rgba(11,18,29,.78)}
+  .control-icon{width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(167,243,208,.24);border-radius:9px;background:rgba(167,243,208,.07);font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);margin-bottom:28px}
+  .control-title{font-family:'Space Grotesk',sans-serif;font-weight:650;font-size:16px;color:#EDF3F8;margin-bottom:8px}
+  .control-desc{font-size:12.5px;line-height:1.65;color:var(--muted)}
+  .engineering-note{display:flex;gap:18px;align-items:flex-start;margin-top:18px;padding:20px 22px;border:1px solid rgba(147,197,253,.18);border-radius:14px;background:rgba(147,197,253,.045)}
+  .engineering-note strong{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;color:var(--accent-2);text-transform:uppercase;padding-top:3px}
+  .engineering-note p{font-size:13px;line-height:1.65;color:#BBC7D4}
+  .page-cta{margin-top:64px;padding:34px;border:1px solid rgba(167,243,208,.20);border-radius:20px;background:linear-gradient(135deg,rgba(52,211,153,.08),rgba(147,197,253,.05));display:flex;align-items:center;justify-content:space-between;gap:28px}
+  .page-cta-copy{max-width:650px}
+  .page-cta-kicker{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  .page-cta-title{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;letter-spacing:-.03em;color:#F3F7FA;margin-bottom:7px}
+  .page-cta p{font-size:13.5px;line-height:1.6;color:var(--muted)}
+  .page-cta-actions{display:flex;gap:10px;flex:0 0 auto}
+
+  .experience-section{background:#080D15}
+  .experience-card{overflow:hidden;border:1px solid var(--line-strong);border-radius:22px;background:linear-gradient(145deg,rgba(17,26,40,.98),rgba(10,16,26,.96));box-shadow:0 24px 65px rgba(0,0,0,.18)}
+  .experience-top{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;padding:30px 32px;border-bottom:1px solid var(--line)}
+  .experience-role{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.035em;color:#F4F7FA;margin-bottom:7px}
+  .experience-summary{font-size:14px;line-height:1.7;color:var(--muted);max-width:720px}
+  .experience-date{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;color:var(--accent);border:1px solid rgba(167,243,208,.22);border-radius:999px;padding:7px 10px;background:rgba(167,243,208,.06);text-transform:uppercase}
+  .experience-scope{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid var(--line)}
+  .scope-item{padding:24px 26px;border-right:1px solid var(--line)}
+  .scope-item:last-child{border-right:0}
+  .scope-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.07em;color:var(--accent-2);text-transform:uppercase;margin-bottom:8px}
+  .scope-item p{font-size:13px;line-height:1.65;color:#BCC8D5}
+  .experience-results{display:grid;grid-template-columns:repeat(5,1fr);padding:24px 32px}
+  .experience-result{padding:2px 18px;border-right:1px solid var(--line)}
+  .experience-result:first-child{padding-left:0}.experience-result:last-child{border-right:0;padding-right:0}
+  .experience-result strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:27px;line-height:1.1;color:#fff;margin-bottom:5px}
+  .experience-result span{display:block;font-family:'IBM Plex Mono',monospace;font-size:8px;line-height:1.5;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+
+  @keyframes heroRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes panelFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes gradientDrift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .page.active header.hero .eyebrow{animation:heroRise .6s cubic-bezier(.2,.75,.25,1) both}
+  .page.active header.hero .headline{animation:heroRise .7s .08s cubic-bezier(.2,.75,.25,1) both}
+  .page.active header.hero .hero-sub{animation:heroRise .7s .16s cubic-bezier(.2,.75,.25,1) both}
+  .page.active header.hero .hero-cta{animation:heroRise .7s .23s cubic-bezier(.2,.75,.25,1) both}
+  .page.active header.hero .hero-metrics{animation:heroRise .7s .3s cubic-bezier(.2,.75,.25,1) both}
+  h1.headline em{background-size:220% 220%;animation:gradientDrift 7s ease-in-out infinite}
+  .waterfall{animation:panelFloat 7s ease-in-out infinite}
+  .proof-card,.control-card,.route-card,.loom-card,.experience-card{will-change:transform}
+  .proof-card,.control-card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+  .proof-card:hover,.control-card:hover{transform:translateY(-5px);border-color:rgba(167,243,208,.28);box-shadow:0 18px 45px rgba(0,0,0,.2)}
+  body.motion-ready .reveal{opacity:0;transform:translateY(26px);transition:opacity .68s cubic-bezier(.2,.75,.25,1),transform .68s cubic-bezier(.2,.75,.25,1);transition-delay:var(--reveal-delay,0ms)}
+  body.motion-ready .reveal.is-visible{opacity:1;transform:translateY(0)}
+  body.motion-ready .reveal.is-visible:is(.proof-card,.control-card,.route-card,.loom-card):hover{transform:translateY(-5px)}
+
   .loom-grid{gap:16px}
   .loom-card{background:rgba(15,23,36,.90);border-color:var(--line);border-radius:18px;transition:transform .2s,border-color .2s}
   .loom-card:hover{transform:translateY(-4px);border-color:rgba(147,197,253,.30)}
@@ -479,8 +579,12 @@
 
   @media (max-width:980px){
     header.hero .wrap{grid-template-columns:1fr;gap:48px}
-    header.hero .eyebrow,header.hero .headline,header.hero .hero-sub,header.hero .hero-cta,header.hero .waterfall{grid-column:1;grid-row:auto}
+    header.hero .eyebrow,header.hero .headline,header.hero .hero-sub,header.hero .hero-cta,header.hero .hero-metrics,header.hero .waterfall{grid-column:1;grid-row:auto}
     .waterfall{max-width:680px}
+    .intro-video-grid{grid-template-columns:1fr;gap:30px}.intro-video-copy{max-width:680px}
+    .proof-heading{grid-template-columns:1fr;gap:18px}.proof-grid{grid-template-columns:1fr 1fr}.proof-card:last-child{grid-column:1/-1}
+    .engineering-head{grid-template-columns:1fr;gap:18px}.control-grid{grid-template-columns:1fr 1fr}
+    .experience-results{grid-template-columns:repeat(3,1fr);row-gap:24px}.experience-result:nth-child(3){border-right:0}.experience-result:nth-child(4){padding-left:0}
     .route-grid{grid-template-columns:1fr 1fr}.route-card:last-child{grid-column:1/-1}
     .tool-grid{grid-template-columns:repeat(2,1fr)}
   }
@@ -488,24 +592,39 @@
     .wrap{padding:0 20px}nav .wrap{align-items:flex-start;gap:14px}.brand{padding-top:7px;white-space:nowrap}.brand::after{display:none}
     .navlinks{display:flex;overflow-x:auto;max-width:62vw;padding-bottom:3px}.navlinks a{white-space:nowrap;padding:7px 10px}
     header.hero{padding:70px 0 62px}header.hero .wrap{display:block;width:100%;max-width:100%}h1.headline{font-size:clamp(40px,13vw,56px)}.hero-sub{font-size:15px}
+    .hero-metrics{margin-top:26px}.hero-metric{padding:12px 10px}.hero-metric strong{font-size:16px}.hero-metric span{font-size:7.5px}
+    .intro-video-section{padding:58px 0}.intro-player{border-radius:14px}.intro-video-fallback{text-align:left}
+    .proof-section{padding:72px 0}.proof-grid{grid-template-columns:1fr}.proof-card:last-child{grid-column:auto}.proof-card{min-height:0}
+    .case-grid{grid-template-columns:1fr}.control-grid{grid-template-columns:1fr}.control-icon{margin-bottom:18px}.engineering-note{display:block}.engineering-note strong{display:block;margin-bottom:8px}
+    .page-cta{display:block;padding:26px 22px}.page-cta-actions{margin-top:20px;flex-wrap:wrap}
+    .experience-top{display:block;padding:26px 22px}.experience-date{display:inline-block;margin-top:18px}.experience-scope{grid-template-columns:1fr}.scope-item{border-right:0;border-bottom:1px solid var(--line);padding:20px 22px}.scope-item:last-child{border-bottom:0}.experience-results{grid-template-columns:1fr 1fr;padding:22px}.experience-result{padding:12px 14px;border-bottom:1px solid var(--line)}.experience-result:nth-child(2n){border-right:0}.experience-result:nth-child(3){border-right:1px solid var(--line)}.experience-result:nth-child(4){padding-left:14px}.experience-result:last-child{border-bottom:0}
     .wf-row{grid-template-columns:52px repeat(4,minmax(0,1fr));gap:4px;padding:8px 6px}.waterfall{max-width:100%;padding:12px;margin-top:48px;overflow:hidden}.pill{font-size:6px;padding:0 2px}.wf-label{font-size:8px}
     section{padding:76px 0}.route-grid{grid-template-columns:1fr}.route-card:last-child{grid-column:auto}.route-card{min-height:0}
     .tool-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:32px}
     .build-top{padding:26px 22px 22px}.build-stats{gap:22px}.shot-stack{margin:0 8px 8px}.shot-stack img{max-height:330px}.next-step-note{margin:8px;padding:20px}
     .footer-inner{align-items:flex-start}.footer-links{align-items:flex-start}
   }
+  @media (max-width:520px){
+    nav .wrap{gap:8px}.brand{font-size:14px}.navlinks{gap:2px;max-width:60vw}.navlinks a{font-size:11px;padding:7px 8px}
+    .hero-metric{min-width:0}.hero-metric span{overflow-wrap:anywhere}
+  }
+  @media (prefers-reduced-motion:reduce){
+    body.motion-ready .reveal{opacity:1;transform:none}.waterfall,h1.headline em,.page.active header.hero .eyebrow,.page.active header.hero .headline,.page.active header.hero .hero-sub,.page.active header.hero .hero-cta,.page.active header.hero .hero-metrics{animation:none}
+  }
 </style>
 </head>
 <body>
 
-<nav>
+<nav aria-label="Primary navigation">
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
   <div class="wrap">
-    <div class="brand">LYBA<span>.</span>NADEEM</div>
+    <div class="brand" data-context="GTM SYSTEMS">LYBA<span>.</span>NADEEM</div>
     <ul class="navlinks">
       <li><a href="#home" class="active" aria-current="page" data-page="home" onclick="showPage('home', this); return false;">Home</a></li>
       <li><a href="#workflows" data-page="workflows" onclick="showPage('workflows', this); return false;">Workflows</a></li>
       <li><a href="#walkthrough" data-page="walkthrough" onclick="showPage('walkthrough', this); return false;">Walkthrough</a></li>
-      <li><a href="#about" data-page="about" onclick="showPage('home', this); setTimeout(function(){document.getElementById('about').scrollIntoView({behavior:'smooth'});},50); return false;">About Me</a></li>
+      <li><a href="#experience" data-page="experience" onclick="showHomeSection('experience', this); return false;">Experience</a></li>
+      <li><a href="#about" data-page="about" onclick="showHomeSection('about', this); return false;">About Me</a></li>
     </ul>
   </div>
 </nav>
@@ -513,12 +632,19 @@
 <div class="page active" id="page-home">
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">GTM SYSTEMS · OUTBOUND AUTOMATION</div>
-    <h1 class="headline">I build outbound systems, <em>not just lead lists.</em></h1>
-    <p class="hero-sub">I connect <strong>Claude, Apollo, and custom data sources</strong> to Clay, your CRM, and email sequencers. This turns raw research into enriched, personalized campaigns that are ready to launch.</p>
+    <div class="eyebrow">GTM SYSTEMS · CLAY + CLAUDE CODE</div>
+    <h1 class="headline">I turn manual GTM work into <em>reliable revenue systems.</em></h1>
+    <p class="hero-sub">I map the bottleneck, build the automation with <strong>Clay, Claude Code, and n8n</strong>, then design the guardrails that carry clean, verified data into CRM and outreach.</p>
     <div class="hero-cta">
-      <a href="javascript:void(0)" onclick="showPage('workflows')" class="btn btn-primary">Explore the systems →</a>
+      <a href="#workflows" onclick="showPage('workflows'); return false;" class="btn btn-primary">Review the case studies →</a>
+      <a href="#introduction" class="btn btn-ghost">Watch my introduction</a>
       <a href="https://www.linkedin.com/in/lyba-nadeem-pm/" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a>
+    </div>
+
+    <div class="hero-metrics" aria-label="Portfolio evidence at a glance">
+      <div class="hero-metric"><strong>4</strong><span>Outbound campaigns operated</span></div>
+      <div class="hero-metric"><strong>13K</strong><span>Contacts reached</span></div>
+      <div class="hero-metric"><strong>25</strong><span>Positive responses</span></div>
     </div>
 
     <div class="waterfall" aria-label="Three source-to-sequence workflows">
@@ -528,7 +654,7 @@
       </div>
       <div class="wf-row">
         <span class="wf-label">01 / AI</span>
-        <span class="pill" data-stage="0">CLAUDE</span>
+        <span class="pill" data-stage="0">CLAUDE CODE</span>
         <span class="pill" data-stage="1">CLAY</span>
         <span class="pill" data-stage="2">CRM</span>
         <span class="pill" data-stage="3">SEQUENCER</span>
@@ -552,6 +678,54 @@
   </div>
 </header>
 
+<section id="introduction" class="intro-video-section" aria-labelledby="introduction-title">
+  <div class="wrap intro-video-grid">
+    <div class="intro-video-copy">
+      <div class="section-tag">// 00 / A quick introduction</div>
+      <h2 class="section-title" id="introduction-title">Meet the operator behind the systems.</h2>
+      <p class="section-lead">A short introduction to who I am, the experience behind my GTM work, and the way I approach building practical outbound systems.</p>
+      <div class="intro-video-note">Personal introduction on Loom</div>
+    </div>
+    <div>
+      <div class="intro-player">
+        <iframe src="https://www.loom.com/embed/56683993336d490f8f90119dc8fee703" title="Lyba Nadeem - GTM engineering portfolio introduction" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <p class="intro-video-fallback">Video not loading? <a href="https://www.loom.com/share/56683993336d490f8f90119dc8fee703" target="_blank" rel="noopener">Open it directly in Loom ↗</a></p>
+    </div>
+  </div>
+</section>
+
+
+<section id="capabilities" class="proof-section" aria-labelledby="capabilities-title">
+  <div class="wrap">
+    <div class="section-tag">// PROOF / How I work</div>
+    <div class="proof-heading">
+      <h2 class="section-title" id="capabilities-title">The work proves more than tool knowledge.</h2>
+      <p class="section-lead">Each project starts with a manual bottleneck, maps the full operating system around it, and documents the technical logic that makes the automation dependable.</p>
+    </div>
+    <div class="proof-grid">
+      <article class="proof-card">
+        <div class="proof-num">01 / PROBLEM SOLVING</div>
+        <h3 class="proof-title">I automate the work that slows teams down.</h3>
+        <p class="proof-desc">When one provider cannot find a valid work email, the process should not stop or fall back to manual searching. I built a six-layer waterfall that keeps trying, verifies every result, and returns one clean output.</p>
+        <div class="proof-evidence">Evidence: 46 contacts / 6 find + verify layers / final verified email</div>
+      </article>
+      <article class="proof-card">
+        <div class="proof-num">02 / SYSTEM MINDSET</div>
+        <h3 class="proof-title">I design the handoffs, not only the table.</h3>
+        <p class="proof-desc">I think from source to activation: how data enters, which conditions route it, where failures go, what the CRM receives, and when a sequencer is allowed to launch.</p>
+        <div class="proof-evidence">System: source / enrich / verify / sync / sequence</div>
+      </article>
+      <article class="proof-card">
+        <div class="proof-num">03 / TECHNICAL SOUNDNESS</div>
+        <h3 class="proof-title">I can explain and debug the logic.</h3>
+        <p class="proof-desc">I use Clay for enrichment and conditional routing, Claude Code for structured research and workflow logic, and n8n plus APIs for orchestration. My walkthroughs show the decisions behind each build.</p>
+        <div class="proof-evidence">Stack: Clay / Claude Code / n8n / APIs / CRM</div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
 <section id="workflows-preview">
   <div class="wrap">
@@ -562,10 +736,10 @@
     <div class="route-grid">
       <article class="route-card">
         <div class="route-top"><span class="route-num">ROUTE / 01</span><span class="route-type">AI-LED RESEARCH</span></div>
-        <h3 class="route-title">Claude research route</h3>
-        <p class="route-desc">For account research that needs context first. Claude structures the raw insight; Clay enriches and personalizes it before the CRM handoff.</p>
-        <div class="route-flow" aria-label="Claude to Clay to CRM to email sequencer">
-          <span class="route-node source">Claude</span><span class="route-arrow">→</span><span class="route-node">Clay</span><span class="route-arrow">→</span><span class="route-node">CRM</span><span class="route-arrow">→</span><span class="route-node">Sequencer</span>
+        <h3 class="route-title">Claude Code research route</h3>
+        <p class="route-desc">For account research that needs context first. Claude Code structures the raw insight and workflow logic; Clay enriches and personalizes it before the CRM handoff.</p>
+        <div class="route-flow" aria-label="Claude Code to Clay to CRM to email sequencer">
+          <span class="route-node source">Claude Code</span><span class="route-arrow">→</span><span class="route-node">Clay</span><span class="route-arrow">→</span><span class="route-node">CRM</span><span class="route-arrow">→</span><span class="route-node">Sequencer</span>
         </div>
       </article>
 
@@ -589,16 +763,22 @@
     </div>
 
     <div class="stack-strip" aria-label="Tools used">
-      <span class="stack-chip">Clay</span><span class="stack-chip">Claude</span><span class="stack-chip">Apollo</span><span class="stack-chip">n8n</span><span class="stack-chip">HubSpot</span><span class="stack-chip">Zoho</span><span class="stack-chip">Instantly</span><span class="stack-chip">Smartlead</span>
+      <span class="stack-chip">Clay</span><span class="stack-chip">Claude Code</span><span class="stack-chip">Apollo</span><span class="stack-chip">n8n</span><span class="stack-chip">HubSpot</span><span class="stack-chip">Zoho</span><span class="stack-chip">Instantly</span><span class="stack-chip">Smartlead</span>
     </div>
 
     <div style="margin-top:40px;">
-            <div class="build-num">WORKFLOW / 01</div>
+            <div class="build-num">FLAGSHIP CASE STUDY / 01</div>
     <div class="build-card">
       <div class="build-top">
         <div class="build-tag">MULTI-SIGNAL SCORING + AI ARK ENRICHMENT</div>
+        <div class="build-status">Independent build · multi-signal scoring · AI-assisted personalization</div>
         <div class="build-title">GTM Signal Stack: scored sourcing, not scraped lists</div>
         <p class="build-desc">Companies actively hiring for GTM Engineer or RevOps roles, sourced straight from Greenhouse, Lever, and Ashby, scored for free by a formula that reads each job posting for stack mentions, before a single enrichment credit gets spent. Only the top scorers move to AI Ark for firmographics, then into personalized first liners, subject lines, and full email bodies built from the real signal data.</p>
+        <div class="case-grid">
+          <div class="case-item"><span class="case-label">Signal problem</span><p>Generic scraped lists waste enrichment credits before buying intent or fit has been established.</p></div>
+          <div class="case-item"><span class="case-label">System decision</span><p>Score job-posting signals first, then enrich only the highest-fit companies through AI Ark.</p></div>
+          <div class="case-item"><span class="case-label">Campaign output</span><p>Verified contacts and personalized copy grounded in real hiring and technology signals.</p></div>
+        </div>
         <div class="build-stats">
           <div><div class="bstat-num">50</div><div class="bstat-label">Companies Scored, Zero Cost</div></div>
           <div><div class="bstat-num">5</div><div class="bstat-label">AI Ark-Enriched, Real Firmographics</div></div>
@@ -613,17 +793,52 @@
       </div>
     </div>
 
-
     </div>
     <div class="see-more-row">
-      <a href="javascript:void(0)" onclick="showPage('workflows')" class="btn btn-primary">View all workflows →</a>
+      <a href="#workflows" onclick="showPage('workflows'); return false;" class="btn btn-primary">View all workflows →</a>
+    </div>
+  </div>
+</section>
+
+<section id="engineering" class="engineering-section" aria-labelledby="engineering-title">
+  <div class="wrap">
+    <div class="section-tag">// 02 / Production mindset</div>
+    <div class="engineering-head">
+      <h2 class="section-title" id="engineering-title">The workflow is only useful if it survives imperfect data.</h2>
+      <p class="section-lead">These are the controls I use to evaluate a GTM system before handoff. They make the difference between a demo that runs once and an operation a team can trust.</p>
+    </div>
+    <div class="control-grid">
+      <article class="control-card">
+        <div class="control-icon">01</div>
+        <h3 class="control-title">Validate inputs</h3>
+        <p class="control-desc">Normalize required fields and catch missing or duplicate records before spending enrichment credits.</p>
+      </article>
+      <article class="control-card">
+        <div class="control-icon">02</div>
+        <h3 class="control-title">Route failures</h3>
+        <p class="control-desc">Call the next provider only after a miss, reject invalid emails, and preserve an explicit exhausted state.</p>
+      </article>
+      <article class="control-card">
+        <div class="control-icon">03</div>
+        <h3 class="control-title">Gate AI output</h3>
+        <p class="control-desc">Generate structured fields, check for missing context, and keep weak personalization out of activation.</p>
+      </article>
+      <article class="control-card">
+        <div class="control-icon">04</div>
+        <h3 class="control-title">Control handoff</h3>
+        <p class="control-desc">Map clean fields into the CRM first, then launch only records that meet data and sending requirements.</p>
+      </article>
+    </div>
+    <div class="engineering-note">
+      <strong>Production test</strong>
+      <p>I ask what happens when a provider returns nothing, an API times out, a record already exists, or an AI field is low-confidence. Those paths should be designed before scale, not discovered during a live campaign.</p>
     </div>
   </div>
 </section>
 
 <section id="walkthrough-preview">
   <div class="wrap">
-    <div class="section-tag">// 02 / Behind the build</div>
+    <div class="section-tag">// 03 / Behind the build</div>
     <h2 class="section-title">See the logic, not just the final table.</h2>
     <p class="section-lead">Short, practical walkthroughs of the enrichment logic, waterfall decisions, and automation behind the finished outbound system.</p>
     <div class="loom-grid" style="grid-template-columns:1fr; max-width:420px;">
@@ -643,27 +858,56 @@
 
     </div>
     <div class="see-more-row">
-      <a href="javascript:void(0)" onclick="showPage('walkthrough')" class="btn btn-primary">See all 3 videos →</a>
+      <a href="#walkthrough" onclick="showPage('walkthrough'); return false;" class="btn btn-primary">See all 3 videos →</a>
     </div>
+  </div>
+</section>
+
+<section id="experience" class="experience-section" aria-labelledby="experience-title">
+  <div class="wrap">
+    <div class="section-tag">// 04 / Applied experience</div>
+    <h2 class="section-title" id="experience-title">Built and operated outbound campaigns end to end.</h2>
+    <p class="section-lead">Hands-on freelance work covering campaign strategy, data operations, Clay enrichment, and outbound execution.</p>
+    <article class="experience-card">
+      <div class="experience-top">
+        <div>
+          <h3 class="experience-role">Freelance GTM Automation</h3>
+          <p class="experience-summary">Owned the operating path from ICP definition and targeting criteria through enriched lead data, sequence execution, and response reporting.</p>
+        </div>
+        <div class="experience-date">May 2026 - Jul 2026</div>
+      </div>
+      <div class="experience-scope">
+        <div class="scope-item"><span class="scope-label">01 / Strategy</span><p>Defined the ICP and scoped target criteria for the client's outbound campaigns.</p></div>
+        <div class="scope-item"><span class="scope-label">02 / Data system</span><p>Sourced and verified contacts in Clay using company signals, buying signals, and work-email enrichment.</p></div>
+        <div class="scope-item"><span class="scope-label">03 / Execution</span><p>Ran four campaigns end to end across a three-touch email sequence and tracked replies through completion.</p></div>
+      </div>
+      <div class="experience-results" aria-label="Freelance GTM automation results">
+        <div class="experience-result"><strong>4</strong><span>Campaigns operated</span></div>
+        <div class="experience-result"><strong>13K</strong><span>Contacts reached</span></div>
+        <div class="experience-result"><strong>32K</strong><span>Emails sent</span></div>
+        <div class="experience-result"><strong>120</strong><span>Total replies</span></div>
+        <div class="experience-result"><strong>25</strong><span>Positive responses</span></div>
+      </div>
+    </article>
   </div>
 </section>
 
 <section id="about">
   <div class="wrap">
 
-    <div class="section-tag">// 03 / The operator</div>
+    <div class="section-tag">// 05 / The operator</div>
     <h2 class="section-title">Project-management discipline, applied to GTM systems.</h2>
     <div class="about-grid">
       <div>
-        <p>I'm Lyba, a Technical Project Manager transitioning into GTM Engineering. I have managed 15+ concurrent software projects, led client discovery, and kept developers, designers, and QA aligned around delivery.</p>
-        <p>Working closely with sales teams showed me where revenue processes break down. I saw repetitive research, scattered data, unclear CRM handoffs, and follow-ups that depended too heavily on manual work. That made me curious about building a better system.</p>
-        <p>I started exploring n8n and learned how triggers, APIs, and connected workflows can remove those gaps. From there, I moved into Clay, Apollo, CRM operations, and email sequencing. I realized this is the work I want to pursue seriously, so I am now building my career in GTM Engineering.</p>
-        <p>I learn by building and debugging real workflows. I'm also part of #WomenWhoClayPakistan and continue to sharpen my automation skills through hands-on projects.</p>
+        <p>I'm Lyba, a Technical Project Manager and GTM systems builder. I have managed 15+ software projects, led client discovery, and kept developers, designers, and QA aligned around delivery.</p>
+        <p>Working alongside sales teams showed me exactly where revenue processes break: repetitive research, fragmented data, weak CRM handoffs, and follow-up that depends on memory. I now turn those bottlenecks into mapped, repeatable workflows.</p>
+        <p>My background in electrical engineering, Flutter development, and technical delivery shapes how I build: define the inputs, model the logic, connect the tools, test failure paths, and document the handoff.</p>
+        <p>I build and debug with Clay, Claude Code, Apollo, n8n, CRMs, and email sequencers. I'm also part of #WomenWhoClayPakistan and keep improving through hands-on systems and transparent build walkthroughs.</p>
       </div>
       <div class="stat-card">
         <div class="stat"><span class="stat-num">100</span><span class="stat-label">Companies targeted in Clay table</span></div>
         <div class="stat"><span class="stat-num">41</span><span class="stat-label">Verified marketing leads sourced</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Layer waterfall enrichment sequence</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Find + verify waterfall layers</span></div>
         <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Concurrent projects managed</span></div>
       </div>
     </div>
@@ -689,13 +933,13 @@
       </div>
       <div class="tl-item">
         <div class="tl-date">Now</div>
-        <div class="tl-title">Pursuing GTM Engineering</div>
-        <div class="tl-desc">Exploring automation in n8n showed me how those process gaps could be solved. I began building with Clay, Apollo, CRMs, and email sequencers, and decided to pursue GTM Engineering as my long-term direction.</div>
+        <div class="tl-title">Building GTM systems</div>
+        <div class="tl-desc">I now combine Clay, Claude Code, Apollo, n8n, CRMs, and sequencers to build documented workflows for sourcing, enrichment, personalization, and activation.</div>
       </div>
     </div>
 
     <div class="strength-note">
-      <p><b>Where I'm strongest:</b> translating an outbound idea into an organized, repeatable system. This includes sourcing, enrichment, CRM hygiene, personalization, sequencing, and delivery.</p>
+      <p><b>Where I'm strongest:</b> translating an outbound bottleneck into an organized, repeatable system - including sourcing, enrichment, validation, CRM hygiene, personalization, exception handling, and activation.</p>
     </div>
   
     </div>
@@ -707,7 +951,7 @@
   <div class="wrap" id="contact">
     <div class="footer-inner">
       <div>
-        <div class="footer-title">Need a cleaner path from data to replies?</div>
+        <div class="footer-title">Looking for someone who can turn GTM bottlenecks into systems?</div>
         <div class="footer-sub">I'm open to GTM Engineering, RevOps Automation, and outbound systems opportunities.</div>
       </div>
       <div class="footer-links">
@@ -725,10 +969,10 @@
 <div class="page" id="page-workflows">
   <header class="page-head">
     <div class="wrap">
-      <a href="javascript:void(0)" onclick="showPage('home')" class="page-nav-back">← Back to home</a>
+      <a href="#home" onclick="showPage('home'); return false;" class="page-nav-back">← Back to home</a>
       <div class="eyebrow">WORKFLOW BUILDS</div>
       <h1 class="page-title" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(30px,4.6vw,44px); line-height:1.08; letter-spacing:-0.02em; max-width:700px; margin-bottom:16px;">Real builds behind the source-to-sequence system.</h1>
-      <p class="page-sub" style="max-width:560px; font-size:15.5px; color:var(--muted);">These Clay tables show the execution layer behind my three routes: sourcing the right contact, cascading through data providers, verifying the result, and creating campaign-ready personalization.</p>
+      <p class="page-sub" style="max-width:560px; font-size:15.5px; color:var(--muted);">Three independent builds presented as case studies: the manual bottleneck, the system decision, the clean output, and the implementation evidence behind each one.</p>
     </div>
   </header>
   <section>
@@ -799,8 +1043,14 @@
     <div class="build-card">
       <div class="build-top">
         <div class="build-tag">WATERFALL ENRICHMENT</div>
+        <div class="build-status">Independent build · logic documented · walkthrough available</div>
         <div class="build-title">Caffinity: 6-layer email waterfall</div>
         <p class="build-desc">Instead of stopping at "no email found," this table cascades every contact through six alternating find + verify layers, trying a new data provider each time the previous one misses, until a valid work email is confirmed or every option is exhausted.</p>
+        <div class="case-grid">
+          <div class="case-item"><span class="case-label">Manual bottleneck</span><p>Missing emails create dead ends and force repeated provider-by-provider searching.</p></div>
+          <div class="case-item"><span class="case-label">System decision</span><p>Advance only when the previous result is missing or invalid; verify before accepting.</p></div>
+          <div class="case-item"><span class="case-label">Clean output</span><p>A final formula compiles one verified address for CRM and campaign handoff.</p></div>
+        </div>
         <div class="build-stats">
           <div><div class="bstat-num">46</div><div class="bstat-label">Contacts in Table</div></div>
           <div><div class="bstat-num">6</div><div class="bstat-label">Find + Verify Layers</div></div>
@@ -820,8 +1070,14 @@
     <div class="build-card">
       <div class="build-top">
         <div class="build-tag">LEAD ENRICHMENT + AI ICEBREAKERS</div>
+        <div class="build-status">Independent build · role targeting · AI-assisted personalization</div>
         <div class="build-title">Marketing Manager lead list: enrichment + personalization</div>
         <p class="build-desc">Starting from a company list (US Software Development), this table pulls the right contact at each company: Marketing Manager, Manager, or Director, then enriches their work email, verifies it, and generates a personalized AI icebreaker with an outreach priority score.</p>
+        <div class="case-grid">
+          <div class="case-item"><span class="case-label">Input problem</span><p>A company list alone does not identify the right buyer or provide usable contact data.</p></div>
+          <div class="case-item"><span class="case-label">Enrichment logic</span><p>Apply a role hierarchy, enrich and verify work email, then score outreach priority.</p></div>
+          <div class="case-item"><span class="case-label">Campaign output</span><p>One prioritized contact row with verified data and a contextual AI icebreaker.</p></div>
+        </div>
         <div class="build-stats">
           <div><div class="bstat-num">49</div><div class="bstat-label">Contacts in Table</div></div>
           <div><div class="bstat-num">90%</div><div class="bstat-label">Table Completed</div></div>
@@ -841,8 +1097,14 @@
     <div class="build-card">
       <div class="build-top">
         <div class="build-tag">AI PERSONALIZATION PIPELINE</div>
+        <div class="build-status">Independent build · structured AI fields · activation mapped</div>
         <div class="build-title">Rivi: fully personalized email, ready to send</div>
         <p class="build-desc">The final stage of the pipeline: for every contact at Rivi, the table generates an AI company summary, segments the account (SMB), then writes a personalized first line, greeting, and full email body, tailored per person, not templated.</p>
+        <div class="case-grid">
+          <div class="case-item"><span class="case-label">Input problem</span><p>Verified contact data still leaves a rep manually researching and writing each message.</p></div>
+          <div class="case-item"><span class="case-label">AI sequence</span><p>Summarize the company, assign its segment, then generate three structured message fields.</p></div>
+          <div class="case-item"><span class="case-label">Handoff</span><p>Campaign-ready rows mapped for CRM sync and controlled sequencer activation.</p></div>
+        </div>
         <div class="build-stats">
           <div><div class="bstat-num">72</div><div class="bstat-label">Contacts in Table</div></div>
           <div><div class="bstat-num">100%</div><div class="bstat-label">Work Emails Found</div></div>
@@ -875,7 +1137,17 @@
       </div>
     </div>
 
-
+    <div class="page-cta">
+      <div class="page-cta-copy">
+        <div class="page-cta-kicker">Available for GTM systems work</div>
+        <div class="page-cta-title">Have a manual revenue process that should be a system?</div>
+        <p>I can map the bottleneck, define the data flow, and build the automation from enrichment through activation.</p>
+      </div>
+      <div class="page-cta-actions">
+        <a href="mailto:lybanadeem7@gmail.com" class="btn btn-primary">Email me →</a>
+        <a href="https://www.linkedin.com/in/lyba-nadeem-pm/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      </div>
+    </div>
     </div>
   </section>
 </div>
@@ -883,7 +1155,7 @@
 <div class="page" id="page-walkthrough">
   <header class="page-head">
     <div class="wrap">
-      <a href="javascript:void(0)" onclick="showPage('home')" class="page-nav-back">← Back to home</a>
+      <a href="#home" onclick="showPage('home'); return false;" class="page-nav-back">← Back to home</a>
       <div class="eyebrow">BUILD NOTES / VIDEO</div>
       <h1 class="page-title" style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(30px,4.6vw,44px); line-height:1.08; letter-spacing:-0.02em; max-width:700px; margin-bottom:16px;">The thinking behind each workflow.</h1>
       <p class="page-sub" style="max-width:560px; font-size:15.5px; color:var(--muted);">A quick intro, plus three short Loom walkthroughs covering enrichment setup, waterfall logic, and AI personalization in n8n.</p>
@@ -914,7 +1186,7 @@
         <div class="loom-body">
           <div class="loom-num">VIDEO 02</div>
           <div class="loom-title">Building the enrichment table</div>
-          <div class="loom-desc">Watch the full walkthrough</div>
+          <div class="loom-desc">Table structure, target-contact logic, and enrichment columns.</div>
         </div>
       </div>
       <div class="loom-card">
@@ -927,7 +1199,7 @@
         <div class="loom-body">
           <div class="loom-num">VIDEO 03</div>
           <div class="loom-title">Waterfall logic, step by step</div>
-          <div class="loom-desc">Watch the full walkthrough</div>
+          <div class="loom-desc">Provider fallbacks, verification gates, and the final-email formula.</div>
         </div>
       </div>
       <div class="loom-card">
@@ -940,8 +1212,19 @@
         <div class="loom-body">
           <div class="loom-num">VIDEO 04</div>
           <div class="loom-title">AI personalization pipeline in n8n</div>
-          <div class="loom-desc">Watch the full walkthrough</div>
+          <div class="loom-desc">Company summary, segmentation, and structured copy generation.</div>
         </div>
+      </div>
+    </div>
+    <div class="page-cta">
+      <div class="page-cta-copy">
+        <div class="page-cta-kicker">Need the implementation details?</div>
+        <div class="page-cta-title">Let's talk through the system behind the screens.</div>
+        <p>I'm open to GTM Engineering, RevOps Automation, and outbound-systems opportunities.</p>
+      </div>
+      <div class="page-cta-actions">
+        <a href="mailto:lybanadeem7@gmail.com" class="btn btn-primary">Email me →</a>
+        <a href="https://www.linkedin.com/in/lyba-nadeem-pm/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
       </div>
     </div>
   </div>
@@ -961,12 +1244,124 @@
     }
   }
 
-  function showPage(name, navLink){
+  function setBrandContext(context){
+    var brand = document.querySelector('.brand');
+    if(brand) brand.setAttribute('data-context', context);
+  }
+
+  function showPage(name, navLink, updateHistory){
     document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
     document.getElementById('page-' + name).classList.add('active');
     setActiveNav(navLink || document.querySelector('.navlinks a[data-page="' + name + '"]'));
+    setBrandContext(name === 'workflows' ? 'CASE STUDIES' : name === 'walkthrough' ? 'BUILD NOTES' : 'GTM SYSTEMS');
+    if(updateHistory !== false && window.location.hash !== '#' + name){
+      history.pushState({page:name}, '', '#' + name);
+    }
     window.scrollTo({top:0, behavior:'instant'});
   }
+
+  function showHomeSection(sectionId, navLink, updateHistory){
+    showPage('home', navLink, false);
+    setBrandContext(sectionId === 'experience' ? 'EXPERIENCE' : sectionId === 'about' ? 'ABOUT' : 'GTM SYSTEMS');
+    if(updateHistory !== false && window.location.hash !== '#' + sectionId){
+      history.pushState({section:sectionId}, '', '#' + sectionId);
+    }
+    setTimeout(function(){
+      var section = document.getElementById(sectionId);
+      if(section) section.scrollIntoView({behavior:'smooth'});
+    }, 30);
+  }
+
+  function routeFromLocation(){
+    var route = window.location.hash.replace('#', '');
+    if(route === 'workflows' || route === 'walkthrough'){
+      showPage(route, document.querySelector('.navlinks a[data-page="' + route + '"]'), false);
+      return;
+    }
+    var section = document.getElementById(route);
+    if(route && section && section.closest('#page-home')){
+      var navTarget = document.querySelector('.navlinks a[href="#' + route + '"]') || document.querySelector('.navlinks a[data-page="home"]');
+      showPage('home', navTarget, false);
+      setBrandContext(route === 'experience' ? 'EXPERIENCE' : route === 'about' ? 'ABOUT' : 'GTM SYSTEMS');
+      setTimeout(function(){ section.scrollIntoView({behavior:'instant'}); }, 0);
+      return;
+    }
+    showPage('home', document.querySelector('.navlinks a[data-page="home"]'), false);
+  }
+
+  window.addEventListener('popstate', routeFromLocation);
+  routeFromLocation();
+
+  // Scroll chrome: compact navigation, live page context, and reading progress.
+  (function(){
+    var nav = document.querySelector('nav');
+    var progress = document.getElementById('scroll-progress-bar');
+    var ticking = false;
+    function updateScrollChrome(){
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var scrollRange = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      if(nav) nav.classList.toggle('scrolled', scrollTop > 24);
+      if(progress) progress.style.transform = 'scaleX(' + Math.min(1, scrollTop / scrollRange) + ')';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ ticking = true; requestAnimationFrame(updateScrollChrome); }
+    }, {passive:true});
+    window.addEventListener('resize', updateScrollChrome);
+    updateScrollChrome();
+  })();
+
+  // Reveal meaningful groups as they enter the viewport; keep reduced-motion users static.
+  (function(){
+    var targets = document.querySelectorAll('.section-tag, .section-title, .section-lead, .proof-card, .route-card, .build-card, .control-card, .engineering-note, .loom-card, .experience-card, .about-grid, .timeline, .strength-note, .page-cta');
+    targets.forEach(function(target){ target.classList.add('reveal'); });
+    document.querySelectorAll('.proof-grid, .route-grid, .control-grid, .loom-grid').forEach(function(group){
+      Array.from(group.children).forEach(function(item,index){ item.style.setProperty('--reveal-delay', Math.min(index,3) * 90 + 'ms'); });
+    });
+    document.body.classList.add('motion-ready');
+    if(!('IntersectionObserver' in window)){
+      targets.forEach(function(target){ target.classList.add('is-visible'); });
+      return;
+    }
+    var revealObserver = new IntersectionObserver(function(entries,observer){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    targets.forEach(function(target){ revealObserver.observe(target); });
+  })();
+
+  // Keep the top navigation aligned with the home-page section currently in view.
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var spyItems = [
+      {element:document.querySelector('header.hero'),nav:'home',context:'GTM SYSTEMS'},
+      {element:document.getElementById('introduction'),nav:'home',context:'INTRODUCTION'},
+      {element:document.getElementById('capabilities'),nav:'home',context:'PROOF'},
+      {element:document.getElementById('workflows-preview'),nav:'workflows',context:'CASE STUDIES'},
+      {element:document.getElementById('engineering'),nav:'home',context:'RELIABILITY'},
+      {element:document.getElementById('walkthrough-preview'),nav:'walkthrough',context:'BUILD NOTES'},
+      {element:document.getElementById('experience'),nav:'experience',context:'EXPERIENCE'},
+      {element:document.getElementById('about'),nav:'about',context:'ABOUT'}
+    ];
+    spyItems.forEach(function(item){
+      if(item.element){ item.element.dataset.navTarget=item.nav; item.element.dataset.navContext=item.context; }
+    });
+    var spyObserver = new IntersectionObserver(function(entries){
+      if(!document.getElementById('page-home').classList.contains('active')) return;
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var navTarget = document.querySelector('.navlinks a[data-page="' + entry.target.dataset.navTarget + '"]');
+          setActiveNav(navTarget);
+          setBrandContext(entry.target.dataset.navContext);
+        }
+      });
+    }, {rootMargin:'-36% 0px -54% 0px',threshold:0});
+    spyItems.forEach(function(item){ if(item.element) spyObserver.observe(item.element); });
+  })();
 
   // Signature hero animation: staged waterfall pills light up in sequence, loops.
   (function(){
