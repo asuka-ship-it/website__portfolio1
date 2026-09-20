@@ -304,6 +304,37 @@
     padding:3px 8px; border-radius:100px; margin-left:4px;
   }
 
+
+  /* ---- Mode bar + AI Agents page ---- */
+  .mode-bar{position:sticky;top:0;z-index:60;background:var(--canvas);border-bottom:1px solid var(--line);height:40px}
+  .mode-bar .wrap{display:flex;align-items:center;gap:6px;height:100%}
+  .mode-tab{font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:9px 16px;border-radius:999px;transition:color .2s,background .2s}
+  .mode-tab:hover{color:var(--ink)}
+  .mode-tab.active{background:var(--accent);color:#07110D}
+  nav{top:40px !important}
+  .navlinks.agent-links{display:none}
+  body.mode-agents .navlinks.gtme-links{display:none}
+  body.mode-agents .navlinks.agent-links{display:flex}
+  .wrap.agents-wrap{padding-top:72px !important;padding-bottom:72px !important}
+  .navlinks.agent-links{gap:22px}
+  .agent-card{margin-top:28px;scroll-margin-top:120px}
+  .agent-badge{display:inline-block;font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2);background:var(--accent-2-soft);padding:6px 10px;border-radius:999px;margin-bottom:12px}
+  .agent-shot{margin:24px 0 8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0f1216}
+  .agent-shot img{display:block;width:100%;height:auto}
+  .agent-shot figcaption{font:500 12px/1 'IBM Plex Mono',monospace;color:var(--muted);background:var(--canvas-alt);padding:10px 14px;letter-spacing:.04em}
+  .agent-shot .shot-missing{display:none}
+  .agent-shot.missing{background:var(--canvas);border:1.5px dashed var(--line)}
+  .agent-shot.missing img{display:none}
+  .agent-shot.missing .shot-missing{display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;text-align:center;padding:54px 20px;color:var(--muted)}
+  .agent-shot.missing .shot-missing strong{color:var(--ink);font-size:15px}
+  .agent-shot.missing .shot-missing span{font:500 12px/1.4 'IBM Plex Mono',monospace}
+  .agent-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:22px 0 4px}
+  .agent-cat{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card)}
+  .agent-cat strong{display:block;font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.06em;margin-bottom:6px}
+  .agent-cat span{font-size:13px;color:var(--muted);line-height:1.4}
+  .agent-points{margin:24px 0 0;padding:0 32px 0 50px;display:grid;gap:8px;font-size:14.5px}
+  .agent-note{margin:20px 32px 30px;font-size:13px;color:var(--muted);border-left:3px solid var(--accent-2);padding-left:12px}
+  @media(max-width:700px){.mode-tab{padding:9px 12px}.wrap.agents-wrap{padding-top:48px !important}.agent-points{padding:0 20px 0 40px}.agent-note{margin:18px 20px 24px}.navlinks.agent-links{gap:12px;overflow-x:auto;white-space:nowrap;max-width:62vw;scrollbar-width:none}.navlinks.agent-links a{padding:6px 10px;font-size:12.5px}}
 </style>
 <style>
   /* 2026 portfolio redesign: source-to-sequence operator system */
@@ -615,16 +646,23 @@
 </head>
 <body>
 
+<div class="mode-bar" role="tablist" aria-label="Portfolio sections"><div class="wrap"><a href="#home" class="mode-tab active" data-mode="gtme" role="tab" aria-selected="true" onclick="showPage('home'); return false;">GTME</a><a href="#agents" class="mode-tab" data-mode="agents" role="tab" aria-selected="false" onclick="showPage('agents'); return false;">AI Agents</a></div></div>
 <nav aria-label="Primary navigation">
   <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
   <div class="wrap">
     <div class="brand" data-context="GTM SYSTEMS">LYBA<span>.</span>NADEEM</div>
-    <ul class="navlinks">
+    <ul class="navlinks gtme-links">
       <li><a href="#home" class="active" aria-current="page" data-page="home" onclick="showPage('home', this); return false;">Home</a></li>
       <li><a href="#workflows" data-page="workflows" onclick="showPage('workflows', this); return false;">Workflows</a></li>
       <li><a href="#walkthrough" data-page="walkthrough" onclick="showPage('walkthrough', this); return false;">Walkthrough</a></li>
       <li><a href="#experience" data-page="experience" onclick="showHomeSection('experience', this); return false;">Experience</a></li>
       <li><a href="#about" data-page="about" onclick="showHomeSection('about', this); return false;">About Me</a></li>
+    </ul>
+    <ul class="navlinks agent-links">
+      <li><a href="#agent-lead" onclick="agentScroll('agent-lead', this); return false;">Lead Monitor</a></li>
+      <li><a href="#agent-outreach" onclick="agentScroll('agent-outreach', this); return false;">Outreach</a></li>
+      <li><a href="#agent-reply" onclick="agentScroll('agent-reply', this); return false;">Reply Triage</a></li>
+      <li><a href="#agent-faq" onclick="agentScroll('agent-faq', this); return false;">FAQ Bot</a></li>
     </ul>
   </div>
 </nav>
@@ -967,6 +1005,78 @@
 
 </div>
 
+<div class="page" id="page-agents">
+  <div class="wrap agents-wrap">
+    <div class="section-tag">// AI agents</div>
+    <h2 class="section-title">Agents that handle the work around outbound.</h2>
+    <p class="section-lead">Four n8n agents covering the path from finding a lead to handling the reply. They are personal builds, not client work. Each runs on rule-based logic today, with an AI model as the planned upgrade, and the status under each one says exactly what has been tested.</p>
+    <article class="experience-card agent-card" id="agent-lead">
+      <div class="experience-top">
+        <div>
+          <span class="agent-badge">Live public data · rule-based scoring</span>
+          <h3 class="experience-role">Hiring Signal Lead Monitor</h3>
+          <p class="experience-summary">Every morning it reads live remote job postings, finds companies hiring for sales, growth and GTM roles, and ranks them by how strong the hiring signal is.</p>
+        </div>
+        <div class="experience-date">Sep 2026 · n8n</div>
+      </div>
+      <figure class="agent-shot"><img src="assets/agents/lead-monitor.png" alt="n8n workflow for the Hiring Signal Lead Monitor" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/lead-monitor.png</span></div><figcaption>Hiring Signal Lead Monitor in n8n</figcaption></figure>
+      <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Source</span><p>Remote OK and We Work Remotely job feeds, fetched live.</p></div><div class="scope-item"><span class="scope-label">02 / Score</span><p>Ranks each company by role fit, number of open roles and how recent the posting is.</p></div><div class="scope-item"><span class="scope-label">03 / Deliver</span><p>A morning digest of hot leads, with every lead ready to save to a Google Sheet.</p></div></div>
+      
+      <div class="experience-results" aria-label="Key facts"><div class="experience-result"><strong>2</strong><span>Live job sources</span></div><div class="experience-result"><strong>20</strong><span>Ranked leads per run</span></div><div class="experience-result"><strong>30 days</strong><span>Freshness limit</span></div></div>
+      <ul class="agent-points"><li>Removes duplicate postings and ignores anything older than 30 days.</li><li>An outreach branch drafts emails for the best leads into a review queue. Nothing is sent without approval.</li><li>Data credit: Remote OK (remoteok.com) and We Work Remotely (weworkremotely.com).</li></ul>
+      <p class="agent-note">Status: Runs on live public feeds. Scoring is rule-based; an AI model is the planned upgrade.</p>
+    </article>
+    <article class="experience-card agent-card" id="agent-outreach">
+      <div class="experience-top">
+        <div>
+          <span class="agent-badge">Human approval required</span>
+          <h3 class="experience-role">Outreach Draft Agent</h3>
+          <p class="experience-summary">Turns a lead and the role they are hiring for into a first email, a LinkedIn note and a follow-up, then holds everything for review instead of sending.</p>
+        </div>
+        <div class="experience-date">Sep 2026 · n8n</div>
+      </div>
+      <figure class="agent-shot"><img src="assets/agents/outreach-drafts.png" alt="n8n workflow for the Outreach Draft Agent" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/outreach-drafts.png</span></div><figcaption>Outreach Draft Agent in n8n</figcaption></figure>
+      <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Input</span><p>A lead: company, role and number of open roles.</p></div><div class="scope-item"><span class="scope-label">02 / Draft</span><p>Writes the email, LinkedIn note and follow-up using only facts from the job posting.</p></div><div class="scope-item"><span class="scope-label">03 / Approval gate</span><p>Nothing is sent until a human approves. Unapproved drafts wait in a review queue.</p></div></div>
+      
+      <div class="experience-results" aria-label="Key facts"><div class="experience-result"><strong>3</strong><span>Messages per lead</span></div><div class="experience-result"><strong>1</strong><span>Human approval gate</span></div></div>
+      <ul class="agent-points"><li>The full pipeline adds safety rules: a minimum lead score, a daily cap, one email per company, a do-not-contact list and a spam-word check.</li><li>Nothing about a company is invented; the copy only references the posting.</li></ul>
+      <p class="agent-note">Status: Template-based drafting today. An AI model is the planned upgrade for fully personalised copy.</p>
+    </article>
+    <article class="experience-card agent-card" id="agent-reply">
+      <div class="experience-top">
+        <div>
+          <span class="agent-badge">Personal build · tested on sample data</span>
+          <h3 class="experience-role">Reply Triage Agent</h3>
+          <p class="experience-summary">Sorts cold-email replies from Instantly and Smartlead, so a positive response reaches Slack in seconds and everything else is logged with the right follow-up flag.</p>
+        </div>
+        <div class="experience-date">Sep 2026 · n8n</div>
+      </div>
+      <figure class="agent-shot"><img src="assets/agents/reply-triage-agent.png" alt="n8n workflow for the Reply Triage Agent" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/reply-triage-agent.png</span></div><figcaption>Reply Triage Agent in n8n</figcaption></figure>
+      <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Trigger</span><p>Reply webhook from Instantly or Smartlead.</p></div><div class="scope-item"><span class="scope-label">02 / Classify</span><p>Reads only what the person wrote, ignoring the quoted thread, and assigns a category with the matched phrase.</p></div><div class="scope-item"><span class="scope-label">03 / Route</span><p>Positive replies go to Slack. Everything else is logged to Google Sheets, with negatives flagged do-not-contact.</p></div></div>
+      <div class="agent-cats" aria-label="Reply categories"><div class="agent-cat"><strong>POSITIVE</strong><span>Interest, meeting or pricing request. Sent to Slack.</span></div><div class="agent-cat"><strong>NEGATIVE</strong><span>Not interested or unsubscribe. Logged and suppressed.</span></div><div class="agent-cat"><strong>REFERRAL</strong><span>Wrong person, points to a colleague. Logged for follow-up.</span></div><div class="agent-cat"><strong>LATER</strong><span>Not now, circle back. Logged for a future touch.</span></div><div class="agent-cat"><strong>AUTO-REPLY</strong><span>Out of office. Logged, no alert.</span></div><div class="agent-cat"><strong>NEUTRAL</strong><span>Unclear intent. Logged for a human to review.</span></div></div>
+      
+      <ul class="agent-points"><li>Unreadable or empty payloads become NEUTRAL for human review, so no reply is silently dropped.</li><li>One setting decides whether negative replies are logged or ignored.</li></ul>
+      <p class="agent-note">Status: Built and tested on a sample set of replies. It has not been run on live campaign replies yet, and the classifier is rule-based with an AI model as the planned upgrade.</p>
+    </article>
+    <article class="experience-card agent-card" id="agent-faq">
+      <div class="experience-top">
+        <div>
+          <span class="agent-badge">Escalates instead of guessing</span>
+          <h3 class="experience-role">Support FAQ Bot</h3>
+          <p class="experience-summary">Answers customer questions from a FAQ and hands over to a human when it is not confident, instead of making something up.</p>
+        </div>
+        <div class="experience-date">Sep 2026 · n8n</div>
+      </div>
+      <figure class="agent-shot"><img src="assets/agents/faq-bot.png" alt="n8n workflow for the Support FAQ Bot" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/faq-bot.png</span></div><figcaption>Support FAQ Bot in n8n</figcaption></figure>
+      <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Question</span><p>A customer question arrives by webhook.</p></div><div class="scope-item"><span class="scope-label">02 / Match</span><p>Finds the closest FAQ entry and scores how confident the match is.</p></div><div class="scope-item"><span class="scope-label">03 / Answer or hand over</span><p>Replies when confident. Otherwise it escalates to a teammate and records the gap.</p></div></div>
+      
+      <div class="experience-results" aria-label="Key facts"><div class="experience-result"><strong>9</strong><span>Sample questions run</span></div><div class="experience-result"><strong>3</strong><span>Handed to a human</span></div></div>
+      <ul class="agent-points"><li>Handles greetings and thanks without escalating them.</li><li>A FAQ Gaps report lists the questions it could not answer, so the FAQ can be improved.</li><li>Built on a sample FAQ for a fictional shop.</li></ul>
+      <p class="agent-note">Status: Rule-based matching on a sample FAQ. An AI model is the planned upgrade.</p>
+    </article>
+  </div>
+</div>
+
 <div class="page" id="page-workflows">
   <header class="page-head">
     <div class="wrap">
@@ -1251,11 +1361,27 @@
     if(brand) brand.setAttribute('data-context', context);
   }
 
+  function setMode(mode){
+    document.body.classList.toggle('mode-agents', mode === 'agents');
+    document.querySelectorAll('.mode-tab').forEach(function(tab){
+      var on = tab.getAttribute('data-mode') === mode;
+      tab.classList.toggle('active', on);
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
+  function agentScroll(id, link){
+    setActiveNav(link);
+    var target = document.getElementById(id);
+    if(target) target.scrollIntoView({behavior:'smooth'});
+  }
+
   function showPage(name, navLink, updateHistory){
     document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
     document.getElementById('page-' + name).classList.add('active');
     setActiveNav(navLink || document.querySelector('.navlinks a[data-page="' + name + '"]'));
-    setBrandContext(name === 'workflows' ? 'CASE STUDIES' : name === 'walkthrough' ? 'BUILD NOTES' : 'GTM SYSTEMS');
+    setBrandContext(name === 'workflows' ? 'CASE STUDIES' : name === 'walkthrough' ? 'BUILD NOTES' : name === 'agents' ? 'AI AGENTS' : 'GTM SYSTEMS');
+    setMode(name === 'agents' ? 'agents' : 'gtme');
     if(updateHistory !== false && window.location.hash !== '#' + name){
       history.pushState({page:name}, '', '#' + name);
     }
@@ -1276,7 +1402,7 @@
 
   function routeFromLocation(){
     var route = window.location.hash.replace('#', '');
-    if(route === 'workflows' || route === 'walkthrough'){
+    if(route === 'workflows' || route === 'walkthrough' || route === 'agents'){
       showPage(route, document.querySelector('.navlinks a[data-page="' + route + '"]'), false);
       return;
     }
