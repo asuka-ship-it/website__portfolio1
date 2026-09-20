@@ -306,18 +306,20 @@
 
 
   /* ---- Mode bar + AI Agents page ---- */
-  .mode-bar{position:sticky;top:0;z-index:60;background:var(--canvas);border-bottom:1px solid var(--line);height:40px}
-  .mode-bar .wrap{display:flex;align-items:center;gap:6px;height:100%}
-  .mode-tab{font:600 12px/1 'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:9px 16px;border-radius:999px;transition:color .2s,background .2s}
-  .mode-tab:hover{color:var(--ink)}
-  .mode-tab.active{background:var(--accent);color:#07110D}
-  nav{top:40px !important}
+  .mode-bar{position:sticky;top:0;z-index:60;background:var(--canvas);border-bottom:1px solid var(--line);height:56px}
+  .mode-bar .wrap{display:flex;align-items:center;justify-content:center;height:100%}
+  .mode-switch{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid rgba(167,243,208,.28);border-radius:999px;background:var(--canvas-alt);box-shadow:0 0 0 4px rgba(167,243,208,.05)}
+  .mode-tab{font:700 13.5px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.72;text-decoration:none;padding:11px 30px;border-radius:999px;transition:color .2s,background .2s,opacity .2s,transform .2s}
+  .mode-tab:hover{opacity:1;background:rgba(255,255,255,.06)}
+  .mode-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;opacity:1}
+  .mode-tab.active{background:var(--accent);color:#07110D;opacity:1;box-shadow:0 4px 18px rgba(167,243,208,.28)}
+  nav{top:56px !important}
   .navlinks.agent-links{display:none}
   body.mode-agents .navlinks.gtme-links{display:none}
   body.mode-agents .navlinks.agent-links{display:flex}
   .wrap.agents-wrap{padding-top:72px !important;padding-bottom:72px !important}
   .navlinks.agent-links{gap:22px}
-  .agent-card{margin-top:28px;scroll-margin-top:120px}
+  .agent-card{margin-top:28px;scroll-margin-top:140px}
   .agent-badge{display:inline-block;font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-2);background:var(--accent-2-soft);padding:6px 10px;border-radius:999px;margin-bottom:12px}
   .agent-shot{margin:24px 0 8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0f1216}
   .agent-shot img{display:block;width:100%;height:auto}
@@ -334,7 +336,35 @@
   .agent-cat span{font-size:13px;color:var(--muted);line-height:1.4}
   .agent-points{margin:24px 0 0;padding:0 32px 0 50px;display:grid;gap:8px;font-size:14.5px}
   .agent-note{margin:20px 32px 30px;font-size:13px;color:var(--muted);border-left:3px solid var(--accent-2);padding-left:12px}
-  @media(max-width:700px){.mode-tab{padding:9px 12px}.wrap.agents-wrap{padding-top:48px !important}.agent-points{padding:0 20px 0 40px}.agent-note{margin:18px 20px 24px}.navlinks.agent-links{gap:12px;overflow-x:auto;white-space:nowrap;max-width:62vw;scrollbar-width:none}.navlinks.agent-links a{padding:6px 10px;font-size:12.5px}}
+  @media(max-width:700px){.mode-bar{height:52px}nav{top:52px !important}.mode-tab{padding:10px 20px;font-size:12.5px}.wrap.agents-wrap{padding-top:48px !important}.agent-points{padding:0 20px 0 40px}.agent-note{margin:18px 20px 24px}.navlinks.agent-links{gap:12px;overflow-x:auto;white-space:nowrap;max-width:62vw;scrollbar-width:none}.navlinks.agent-links a{padding:6px 10px;font-size:12.5px}}
+
+  /* ---- AI Agents polish ---- */
+  .agent-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:34px 0 10px}
+  .agent-index a{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+  .agent-index a:hover,.agent-index a:focus-visible{transform:translateY(-3px);border-color:rgba(167,243,208,.45);box-shadow:0 10px 30px rgba(0,0,0,.28);outline:none}
+  .agent-index .ai-num{display:block;font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.09em;color:var(--accent);margin-bottom:8px}
+  .agent-index strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:16px;margin-bottom:6px}
+  .agent-index .ai-status{display:block;font-size:12.5px;color:var(--muted);line-height:1.4}
+  .agent-pipeline{margin:26px 0 6px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0))}
+  .agent-pipeline .pl-title{font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-2);margin-bottom:14px}
+  .pl-steps{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px}
+  .pl-step{flex:1 1 200px;border-radius:10px;padding:12px 14px;background:var(--canvas-alt);border:1px solid var(--line)}
+  .pl-step b{display:block;font-size:14px;margin-bottom:4px}
+  .pl-step span{font-size:13px;color:var(--muted);line-height:1.4}
+  .pl-arrow{align-self:center;color:var(--accent);font-size:20px}
+  .pl-foot{margin:14px 0 0;font-size:13px;color:var(--muted)}
+  .agent-count{display:inline-block;font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--muted);margin:0 10px 12px 0}
+  .agent-card{transition:border-color .25s ease,box-shadow .25s ease}
+  .agent-card:hover{border-color:rgba(167,243,208,.32);box-shadow:0 14px 44px rgba(0,0,0,.32)}
+  .agent-shot img{cursor:zoom-in}
+  .agent-shot img:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  .lb{position:fixed;inset:0;z-index:300;background:rgba(3,6,10,.94);display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:97vw;max-height:92vh;width:auto;height:auto;border-radius:10px;box-shadow:0 20px 80px rgba(0,0,0,.6);cursor:default}
+  .lb-close{position:absolute;top:14px;right:18px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:26px;line-height:1;cursor:pointer}
+  .lb-close:hover,.lb-close:focus-visible{border-color:var(--accent);outline:none}
+  @media(prefers-reduced-motion:reduce){.agent-index a,.agent-card{transition:none}.agent-index a:hover{transform:none}}
+  @media(max-width:700px){.pl-arrow{transform:rotate(90deg);width:100%;text-align:center}.agent-pipeline{padding:16px}}
 </style>
 <style>
   /* 2026 portfolio redesign: source-to-sequence operator system */
@@ -646,7 +676,7 @@
 </head>
 <body>
 
-<div class="mode-bar" role="tablist" aria-label="Portfolio sections"><div class="wrap"><a href="#home" class="mode-tab active" data-mode="gtme" role="tab" aria-selected="true" onclick="showPage('home'); return false;">GTME</a><a href="#agents" class="mode-tab" data-mode="agents" role="tab" aria-selected="false" onclick="showPage('agents'); return false;">AI Agents</a></div></div>
+<div class="mode-bar" role="tablist" aria-label="Portfolio sections"><div class="wrap"><div class="mode-switch"><a href="#home" class="mode-tab active" data-mode="gtme" role="tab" aria-selected="true" onclick="showPage('home'); return false;">GTME</a><a href="#agents" class="mode-tab" data-mode="agents" role="tab" aria-selected="false" onclick="showPage('agents'); return false;">AI Agents</a></div></div></div>
 <nav aria-label="Primary navigation">
   <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
   <div class="wrap">
@@ -1010,16 +1040,33 @@
     <div class="section-tag">// AI agents</div>
     <h2 class="section-title">Agents that handle the work around outbound.</h2>
     <p class="section-lead">Four n8n agents covering the path from finding a lead to handling the reply. They are personal builds, not client work. Each runs on rule-based logic today, with an AI model as the planned upgrade, and the status under each one says exactly what has been tested.</p>
+    <div class="agent-index" role="navigation" aria-label="Agents at a glance">
+      <a href="#agent-lead" onclick="agentScroll('agent-lead', null); return false;"><span class="ai-num">01</span><strong>Hiring Signal Lead Monitor</strong><span class="ai-status">Runs on live public job feeds</span></a>
+      <a href="#agent-outreach" onclick="agentScroll('agent-outreach', null); return false;"><span class="ai-num">02</span><strong>Outreach Draft Agent</strong><span class="ai-status">Human approval before anything is sent</span></a>
+      <a href="#agent-reply" onclick="agentScroll('agent-reply', null); return false;"><span class="ai-num">03</span><strong>Reply Triage Agent</strong><span class="ai-status">Tested on sample replies</span></a>
+      <a href="#agent-faq" onclick="agentScroll('agent-faq', null); return false;"><span class="ai-num">04</span><strong>Support FAQ Bot</strong><span class="ai-status">Tested on a sample FAQ</span></a>
+    </div>
+    <div class="agent-pipeline" aria-label="How the agents fit together">
+      <div class="pl-title">How the first three fit together</div>
+      <div class="pl-steps">
+        <div class="pl-step"><b>Find</b><span>The Lead Monitor spots companies that are hiring for GTM roles.</span></div>
+        <div class="pl-arrow" aria-hidden="true">&rarr;</div>
+        <div class="pl-step"><b>Write</b><span>The Outreach Draft Agent prepares the first message for review.</span></div>
+        <div class="pl-arrow" aria-hidden="true">&rarr;</div>
+        <div class="pl-step"><b>Handle replies</b><span>The Reply Triage Agent sorts what comes back and alerts on interest.</span></div>
+      </div>
+      <p class="pl-foot">Each one runs as its own n8n workflow. The FAQ Bot is a separate build for customer support.</p>
+    </div>
     <article class="experience-card agent-card" id="agent-lead">
       <div class="experience-top">
         <div>
-          <span class="agent-badge">Live public data · rule-based scoring</span>
+          <span class="agent-count">AGENT 01 / 04</span><span class="agent-badge">Live public data · rule-based scoring</span>
           <h3 class="experience-role">Hiring Signal Lead Monitor</h3>
           <p class="experience-summary">Every morning it reads live remote job postings, finds companies hiring for sales, growth and GTM roles, and ranks them by how strong the hiring signal is.</p>
         </div>
         <div class="experience-date">Sep 2026 · n8n</div>
       </div>
-      <figure class="agent-shot"><img src="assets/agents/lead-monitor.png" alt="n8n workflow for the Hiring Signal Lead Monitor" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/lead-monitor.png</span></div><figcaption>Hiring Signal Lead Monitor in n8n</figcaption></figure>
+      <figure class="agent-shot"><img src="assets/agents/lead-monitor.png" alt="n8n workflow for the Hiring Signal Lead Monitor" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/lead-monitor.png</span></div><figcaption>Hiring Signal Lead Monitor in n8n &middot; click to enlarge</figcaption></figure>
       <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Source</span><p>Remote OK and We Work Remotely job feeds, fetched live.</p></div><div class="scope-item"><span class="scope-label">02 / Score</span><p>Ranks each company by role fit, number of open roles and how recent the posting is.</p></div><div class="scope-item"><span class="scope-label">03 / Deliver</span><p>A morning digest of hot leads, with every lead ready to save to a Google Sheet.</p></div></div>
       
       <div class="experience-results" aria-label="Key facts"><div class="experience-result"><strong>2</strong><span>Live job sources</span></div><div class="experience-result"><strong>20</strong><span>Ranked leads per run</span></div><div class="experience-result"><strong>30 days</strong><span>Freshness limit</span></div></div>
@@ -1029,13 +1076,13 @@
     <article class="experience-card agent-card" id="agent-outreach">
       <div class="experience-top">
         <div>
-          <span class="agent-badge">Human approval required</span>
+          <span class="agent-count">AGENT 02 / 04</span><span class="agent-badge">Human approval required</span>
           <h3 class="experience-role">Outreach Draft Agent</h3>
           <p class="experience-summary">Turns a lead and the role they are hiring for into a first email, a LinkedIn note and a follow-up, then holds everything for review instead of sending.</p>
         </div>
         <div class="experience-date">Sep 2026 · n8n</div>
       </div>
-      <figure class="agent-shot"><img src="assets/agents/outreach-drafts.png" alt="n8n workflow for the Outreach Draft Agent" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/outreach-drafts.png</span></div><figcaption>Outreach Draft Agent in n8n</figcaption></figure>
+      <figure class="agent-shot"><img src="assets/agents/outreach-drafts.png" alt="n8n workflow for the Outreach Draft Agent" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/outreach-drafts.png</span></div><figcaption>Outreach Draft Agent in n8n &middot; click to enlarge</figcaption></figure>
       <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Input</span><p>A lead: company, role and number of open roles.</p></div><div class="scope-item"><span class="scope-label">02 / Draft</span><p>Writes the email, LinkedIn note and follow-up using only facts from the job posting.</p></div><div class="scope-item"><span class="scope-label">03 / Approval gate</span><p>Nothing is sent until a human approves. Unapproved drafts wait in a review queue.</p></div></div>
       
       <div class="experience-results" aria-label="Key facts"><div class="experience-result"><strong>3</strong><span>Messages per lead</span></div><div class="experience-result"><strong>1</strong><span>Human approval gate</span></div></div>
@@ -1045,13 +1092,13 @@
     <article class="experience-card agent-card" id="agent-reply">
       <div class="experience-top">
         <div>
-          <span class="agent-badge">Personal build · tested on sample data</span>
+          <span class="agent-count">AGENT 03 / 04</span><span class="agent-badge">Personal build · tested on sample data</span>
           <h3 class="experience-role">Reply Triage Agent</h3>
           <p class="experience-summary">Sorts cold-email replies from Instantly and Smartlead, so a positive response reaches Slack in seconds and everything else is logged with the right follow-up flag.</p>
         </div>
         <div class="experience-date">Sep 2026 · n8n</div>
       </div>
-      <figure class="agent-shot"><img src="assets/agents/reply-triage-agent.png" alt="n8n workflow for the Reply Triage Agent" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/reply-triage-agent.png</span></div><figcaption>Reply Triage Agent in n8n</figcaption></figure>
+      <figure class="agent-shot"><img src="assets/agents/reply-triage-agent.png" alt="n8n workflow for the Reply Triage Agent" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/reply-triage-agent.png</span></div><figcaption>Reply Triage Agent in n8n &middot; click to enlarge</figcaption></figure>
       <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Trigger</span><p>Reply webhook from Instantly or Smartlead.</p></div><div class="scope-item"><span class="scope-label">02 / Classify</span><p>Reads only what the person wrote, ignoring the quoted thread, and assigns a category with the matched phrase.</p></div><div class="scope-item"><span class="scope-label">03 / Route</span><p>Positive replies go to Slack. Everything else is logged to Google Sheets, with negatives flagged do-not-contact.</p></div></div>
       <div class="agent-cats" aria-label="Reply categories"><div class="agent-cat"><strong>POSITIVE</strong><span>Interest, meeting or pricing request. Sent to Slack.</span></div><div class="agent-cat"><strong>NEGATIVE</strong><span>Not interested or unsubscribe. Logged and suppressed.</span></div><div class="agent-cat"><strong>REFERRAL</strong><span>Wrong person, points to a colleague. Logged for follow-up.</span></div><div class="agent-cat"><strong>LATER</strong><span>Not now, circle back. Logged for a future touch.</span></div><div class="agent-cat"><strong>AUTO-REPLY</strong><span>Out of office. Logged, no alert.</span></div><div class="agent-cat"><strong>NEUTRAL</strong><span>Unclear intent. Logged for a human to review.</span></div></div>
       
@@ -1061,13 +1108,13 @@
     <article class="experience-card agent-card" id="agent-faq">
       <div class="experience-top">
         <div>
-          <span class="agent-badge">Escalates instead of guessing</span>
+          <span class="agent-count">AGENT 04 / 04</span><span class="agent-badge">Escalates instead of guessing</span>
           <h3 class="experience-role">Support FAQ Bot</h3>
           <p class="experience-summary">Answers customer questions from a FAQ and hands over to a human when it is not confident, instead of making something up.</p>
         </div>
         <div class="experience-date">Sep 2026 · n8n</div>
       </div>
-      <figure class="agent-shot"><img src="assets/agents/faq-bot.png" alt="n8n workflow for the Support FAQ Bot" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/faq-bot.png</span></div><figcaption>Support FAQ Bot in n8n</figcaption></figure>
+      <figure class="agent-shot"><img src="assets/agents/faq-bot.png" alt="n8n workflow for the Support FAQ Bot" loading="lazy" onerror="this.closest('.agent-shot').classList.add('missing')"><div class="shot-missing"><strong>Workflow screenshot goes here</strong><span>Save it as assets/agents/faq-bot.png</span></div><figcaption>Support FAQ Bot in n8n &middot; click to enlarge</figcaption></figure>
       <div class="experience-scope"><div class="scope-item"><span class="scope-label">01 / Question</span><p>A customer question arrives by webhook.</p></div><div class="scope-item"><span class="scope-label">02 / Match</span><p>Finds the closest FAQ entry and scores how confident the match is.</p></div><div class="scope-item"><span class="scope-label">03 / Answer or hand over</span><p>Replies when confident. Otherwise it escalates to a teammate and records the gap.</p></div></div>
       
       <div class="experience-results" aria-label="Key facts"><div class="experience-result"><strong>9</strong><span>Sample questions run</span></div><div class="experience-result"><strong>3</strong><span>Handed to a human</span></div></div>
@@ -1371,7 +1418,7 @@
   }
 
   function agentScroll(id, link){
-    setActiveNav(link);
+    if(link) setActiveNav(link);
     var target = document.getElementById(id);
     if(target) target.scrollIntoView({behavior:'smooth'});
   }
@@ -1518,6 +1565,47 @@
     }
     runCycle();
     setInterval(runCycle, stageDelay * 4 + 2200);
+  })();
+
+  // Click a workflow screenshot to enlarge it; Esc, the close button or a click outside closes it.
+  (function(){
+    var lb = document.createElement('div');
+    lb.className = 'lb';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Workflow screenshot');
+    lb.innerHTML = '<button type="button" class="lb-close" aria-label="Close">&times;</button><img alt="">';
+    document.body.appendChild(lb);
+    var big = lb.querySelector('img');
+    var closeBtn = lb.querySelector('button');
+    var opener = null;
+    function openLb(im){
+      big.src = im.currentSrc || im.src;
+      big.alt = im.alt || '';
+      opener = im;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+    function closeLb(){
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      big.removeAttribute('src');
+      if(opener) opener.focus();
+    }
+    document.querySelectorAll('.agent-shot img').forEach(function(im){
+      im.setAttribute('tabindex', '0');
+      im.setAttribute('role', 'button');
+      im.setAttribute('aria-label', 'Enlarge screenshot: ' + im.alt);
+      im.addEventListener('click', function(){ openLb(im); });
+      im.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLb(im); }
+      });
+    });
+    lb.addEventListener('click', function(e){ if(e.target !== big) closeLb(); });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && lb.classList.contains('open')) closeLb();
+    });
   })();
 </script>
 
