@@ -534,42 +534,34 @@
   .loom-title{font-size:15px;color:#14181C}
 
   /* ---------- WALKTHROUGH PREVIEW ---------- */
-  .walkthrough-preview-section{position:relative;overflow:hidden;background:linear-gradient(180deg,#F7F8F4 0%,#F1F5EF 100%)}
-  .walkthrough-preview-section::before{content:"";position:absolute;width:420px;height:420px;right:-170px;top:-170px;border-radius:50%;background:radial-gradient(circle,rgba(31,122,84,.11),transparent 68%);pointer-events:none}
-  .walkthrough-preview-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.55fr);gap:72px;align-items:end;margin-bottom:38px}
-  .walkthrough-preview-head .section-title{margin-bottom:0;max-width:760px}
-  .walkthrough-preview-intro{padding:4px 0 4px 22px;border-left:2px solid rgba(31,122,84,.35)}
-  .walkthrough-preview-intro p{font-size:15px;line-height:1.7;color:var(--muted);margin:0 0 13px}
-  .walkthrough-preview-intro span{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
-  .walkthrough-preview-intro span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-strong);box-shadow:0 0 10px rgba(31,122,84,.45)}
-  .walkthrough-preview-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(340px,.82fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:18px}
-  .walkthrough-preview-grid .loom-card{position:relative;display:flex;flex-direction:column;min-height:100%;box-shadow:0 14px 42px rgba(20,24,28,.055)}
-  .walkthrough-preview-grid .loom-card--featured{grid-row:1/3}
-  .walkthrough-preview-grid .loom-card--compact{display:grid;grid-template-columns:minmax(170px,.86fr) minmax(0,1.14fr)}
-  .walkthrough-preview-grid .loom-card::after{content:"↗";position:absolute;right:18px;bottom:18px;color:var(--accent);font-size:17px;opacity:.55;transition:transform .2s ease,opacity .2s ease}
-  .walkthrough-preview-grid .loom-card:hover{transform:translateY(-7px);box-shadow:0 22px 54px rgba(20,24,28,.10)}
-  .walkthrough-preview-grid .loom-card:hover::after{transform:translate(2px,-2px);opacity:1}
-  .walkthrough-preview-grid .loom-thumb{aspect-ratio:16/9}
-  .walkthrough-preview-grid .loom-card--featured .loom-thumb{aspect-ratio:16/10}
-  .walkthrough-preview-grid .loom-card--compact .loom-thumb{height:100%;aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--line)}
-  .walkthrough-preview-grid .loom-cover-img{transition:transform .55s cubic-bezier(.2,.75,.25,1),filter .3s ease}
-  .walkthrough-preview-grid .loom-card:hover .loom-cover-img{transform:scale(1.035);filter:saturate(1.06)}
-  .walkthrough-preview-grid .play-overlay{background:linear-gradient(180deg,rgba(20,24,28,.02),rgba(20,24,28,.25))}
-  .walkthrough-preview-grid .play-overlay:hover{background:linear-gradient(180deg,rgba(20,24,28,.03),rgba(20,24,28,.34))}
-  .walkthrough-preview-grid .play-btn{width:50px;height:50px;background:rgba(255,255,255,.94);color:var(--accent);box-shadow:0 10px 28px rgba(20,24,28,.24);backdrop-filter:blur(8px)}
-  .walkthrough-card-type{position:absolute;z-index:2;left:14px;top:14px;padding:7px 9px;border:1px solid rgba(255,255,255,.58);border-radius:999px;background:rgba(20,24,28,.72);color:#fff;font-family:'DM Mono',monospace;font-size:8px;line-height:1;letter-spacing:.07em;text-transform:uppercase;backdrop-filter:blur(10px);pointer-events:none}
-  .walkthrough-preview-grid .loom-body{display:flex;flex-direction:column;flex:1;min-height:146px;padding:20px 52px 22px 20px}
-  .walkthrough-preview-grid .loom-card--featured .loom-body{padding:24px 58px 25px 24px}
-  .walkthrough-preview-grid .loom-card--featured .loom-title{font-size:22px;max-width:420px}
-  .walkthrough-preview-grid .loom-card--featured .loom-desc{font-size:13.5px;max-width:500px}
-  .walkthrough-preview-grid .loom-card--compact .loom-body{justify-content:center;min-height:0;padding:20px 44px 20px 20px}
-  .walkthrough-preview-grid .loom-card--compact .loom-title{font-size:15.5px}
-  .walkthrough-preview-grid .loom-num{margin-bottom:9px;color:var(--accent);letter-spacing:.08em}
-  .walkthrough-preview-grid .loom-title{font-size:17px;line-height:1.32;margin-bottom:8px}
-  .walkthrough-preview-grid .loom-desc{font-size:12.5px;line-height:1.55}
-  .walkthrough-preview-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
-  .walkthrough-preview-footer p{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.055em;text-transform:uppercase;color:var(--muted)}
-  .walkthrough-preview-footer .see-more-row{margin:0}
+  .walkthrough-preview-section{position:relative;background:#EFEEE7;border-top:1px solid #202824;border-bottom:1px solid #202824}
+  .walkthrough-editorial{display:grid;grid-template-columns:minmax(270px,.68fr) minmax(0,1.32fr);gap:70px;align-items:start}
+  .walkthrough-preview-head{position:sticky;top:112px;min-width:0;padding-top:3px}
+  .walkthrough-preview-head .section-tag{margin-bottom:42px}
+  .walkthrough-preview-head .section-title{max-width:420px;margin-bottom:28px;font-size:clamp(40px,4.8vw,66px);line-height:.94;letter-spacing:-.045em}
+  .walkthrough-preview-head .section-title span{display:block;color:transparent;-webkit-text-stroke:1.25px #202824}
+  .walkthrough-preview-intro{max-width:390px;padding-top:20px;border-top:1px solid #202824}
+  .walkthrough-preview-intro p{font-size:14px;line-height:1.72;color:#4E5651;margin:0 0 25px}
+  .walkthrough-index{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid rgba(32,40,36,.24);border-bottom:1px solid rgba(32,40,36,.24);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#202824}
+  .walkthrough-index strong{font-size:21px;font-weight:500;color:var(--accent)}
+  .walkthrough-library-link{display:inline-flex;align-items:center;gap:10px;margin-top:25px;color:#202824;font-size:12px;font-weight:700;text-decoration:none;border-bottom:1px solid #202824;padding-bottom:4px}
+  .walkthrough-library-link span{transition:transform .2s ease}
+  .walkthrough-library-link:hover span{transform:translateX(4px)}
+  .walkthrough-log{border-top:2px solid #202824}
+  .walkthrough-row{display:grid;grid-template-columns:38px minmax(180px,230px) minmax(0,1fr) 24px;gap:22px;align-items:center;padding:20px 0;border-bottom:1px solid #202824;color:#202824;text-decoration:none;transition:background .2s ease,padding .2s ease}
+  .walkthrough-row:hover{background:#E5E7DC;padding-left:12px;padding-right:12px}
+  .walkthrough-row-num{align-self:start;padding-top:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--accent-2)}
+  .walkthrough-row-thumb{position:relative;overflow:hidden;aspect-ratio:16/10;background:#D7D9D0}
+  .walkthrough-row-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.78) contrast(1.03);transition:filter .25s ease,transform .45s cubic-bezier(.2,.75,.25,1)}
+  .walkthrough-row:hover .walkthrough-row-thumb img{filter:saturate(1) contrast(1);transform:scale(1.025)}
+  .walkthrough-row-play{position:absolute;left:0;bottom:0;padding:7px 9px;background:#202824;color:#fff;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.08em}
+  .walkthrough-row-copy{min-width:0;padding-right:8px}
+  .walkthrough-row-tag{display:block;margin-bottom:14px;font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:.085em;color:var(--accent);text-transform:uppercase}
+  .walkthrough-row-copy h3{margin:0 0 8px;font-family:'Outfit',sans-serif;font-size:21px;line-height:1.1;letter-spacing:-.02em;overflow-wrap:anywhere}
+  .walkthrough-row-copy p{margin:0;max-width:390px;color:#5D645F;font-size:12.5px;line-height:1.5}
+  .walkthrough-row-arrow{font-size:19px;transition:transform .2s ease}
+  .walkthrough-row:hover .walkthrough-row-arrow{transform:translate(3px,-3px)}
+  .walkthrough-footnote{grid-column:2;display:flex;justify-content:space-between;gap:20px;margin-top:16px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.07em;text-transform:uppercase;color:#6A716C}
 
   .about-grid{grid-template-columns:1.35fr .65fr;gap:72px}
   .about-grid p{color:#2B3238;line-height:1.8}
@@ -606,7 +598,7 @@
     .experience-results{grid-template-columns:repeat(3,1fr);row-gap:24px}.experience-result:nth-child(3){border-right:0}.experience-result:nth-child(4){padding-left:0}
     .route-grid{grid-template-columns:1fr 1fr}.route-card:last-child{grid-column:1/-1}
     .tool-grid{grid-template-columns:repeat(2,1fr)}
-    .walkthrough-preview-head{grid-template-columns:1fr;gap:24px}.walkthrough-preview-intro{max-width:640px}.walkthrough-preview-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}.walkthrough-preview-grid .loom-card--featured{grid-row:auto;grid-column:1/-1}.walkthrough-preview-grid .loom-card--featured .loom-thumb{aspect-ratio:2.15/1}.walkthrough-preview-grid .loom-card--compact{display:flex;flex-direction:column}.walkthrough-preview-grid .loom-card--compact .loom-thumb{height:auto;aspect-ratio:16/9;border-right:0;border-bottom:1px solid var(--line)}.walkthrough-preview-grid .loom-card--compact .loom-body{min-height:146px;justify-content:flex-start}
+    .walkthrough-editorial{grid-template-columns:1fr;gap:42px}.walkthrough-preview-head{position:static;display:grid;grid-template-columns:1fr 1fr;gap:34px}.walkthrough-preview-head .section-tag{grid-column:1/-1;margin-bottom:0}.walkthrough-preview-head .section-title{margin-bottom:0}.walkthrough-preview-intro{align-self:end}.walkthrough-footnote{grid-column:1}
   }
   @media (max-width:760px){
     .wrap{padding:0 20px}nav .wrap{align-items:flex-start;gap:14px}.brand{padding-top:7px;white-space:nowrap}.brand::after{display:none}
@@ -621,7 +613,7 @@
     section{padding:76px 0}.route-grid{grid-template-columns:1fr}.route-card:last-child{grid-column:auto}.route-card{min-height:0}
     .tool-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:32px}
     .build-top{padding:26px 22px 22px}.build-stats{gap:22px}.shot-stack{margin:0 8px 8px}.shot-stack img{max-height:330px}.next-step-note{margin:8px;padding:20px}
-    .walkthrough-preview-head{margin-bottom:28px}.walkthrough-preview-intro{padding-left:16px}.walkthrough-preview-grid{grid-template-columns:1fr}.walkthrough-preview-grid .loom-card--featured{grid-column:auto}.walkthrough-preview-grid .loom-card--featured .loom-thumb{aspect-ratio:16/9}.walkthrough-preview-grid .loom-card--featured .loom-title{font-size:19px}.walkthrough-preview-grid .loom-card--compact .loom-thumb{aspect-ratio:16/9}.walkthrough-preview-footer{align-items:flex-start;flex-direction:column}.walkthrough-preview-footer .btn{width:100%;justify-content:center}
+    .walkthrough-editorial{gap:36px}.walkthrough-preview-head{display:block}.walkthrough-preview-head .section-tag{margin-bottom:28px}.walkthrough-preview-head .section-title{max-width:100%;margin-bottom:25px;font-size:clamp(42px,13vw,54px)}.walkthrough-preview-head .section-title span{overflow-wrap:anywhere}.walkthrough-preview-intro{max-width:none}.walkthrough-row{grid-template-columns:28px minmax(0,1fr);gap:12px;padding:18px 0}.walkthrough-row:hover{padding-left:0;padding-right:0}.walkthrough-row-num{grid-column:1;grid-row:1/3}.walkthrough-row-thumb{grid-column:2;aspect-ratio:16/9}.walkthrough-row-copy{grid-column:2;padding:6px 2px 2px 0}.walkthrough-row-arrow{display:none}.walkthrough-row-copy h3{font-size:19px}.walkthrough-row-copy p{font-size:12px;line-height:1.45}.walkthrough-row-tag{margin-bottom:8px;font-size:7.5px}.walkthrough-row-play{font-size:7px;padding:5px 7px}.walkthrough-footnote{display:block}.walkthrough-footnote span{display:block;margin-bottom:6px}
     .footer-inner{align-items:flex-start}.footer-links{align-items:flex-start}
   }
   @media (max-width:520px){
@@ -981,64 +973,60 @@
 
 <section id="walkthrough-preview" class="walkthrough-preview-section">
   <div class="wrap">
-    <div class="walkthrough-preview-head">
-      <div>
+    <div class="walkthrough-editorial">
+      <aside class="walkthrough-preview-head">
         <div class="section-tag">// 06 / Behind the build</div>
-        <h2 class="section-title">See the logic, not just the final table.</h2>
+        <h2 class="section-title">See the logic.<span>Follow<br>the build.</span></h2>
+        <div class="walkthrough-preview-intro">
+          <p>Not a polished final-table reveal. These are working notes on how the enrichment structure, fallback logic, and automation were actually assembled.</p>
+          <div class="walkthrough-index"><span>Recorded build notes</span><strong>03</strong></div>
+          <a href="#walkthrough" onclick="showPage('walkthrough'); return false;" class="walkthrough-library-link">Open the full video index <span>→</span></a>
+        </div>
+      </aside>
+      <div class="walkthrough-log" aria-label="Technical walkthrough recordings">
+        <a class="walkthrough-row" href="https://www.loom.com/share/22cb29e56c954a86a1086f96f8c4a61a" target="_blank" rel="noopener">
+          <span class="walkthrough-row-num">01</span>
+          <div class="walkthrough-row-thumb">
+            <img src="assets/screens/building-the-enrichment-table-thumbnail.jpg" alt="Building the enrichment table thumbnail">
+            <span class="walkthrough-row-play">PLAY ↗</span>
+          </div>
+          <div class="walkthrough-row-copy">
+            <span class="walkthrough-row-tag">Data architecture</span>
+            <h3>Building the enrichment table</h3>
+            <p>Table structure, target-contact logic, and enrichment columns.</p>
+          </div>
+          <span class="walkthrough-row-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="walkthrough-row" href="https://www.loom.com/share/63913f82f33a4c8aafef79041b8bd659" target="_blank" rel="noopener">
+          <span class="walkthrough-row-num">02</span>
+          <div class="walkthrough-row-thumb">
+            <img src="assets/screens/waterfall-logic-step-by-step-thumbnail.jpg" alt="Waterfall logic, step by step thumbnail">
+            <span class="walkthrough-row-play">PLAY ↗</span>
+          </div>
+          <div class="walkthrough-row-copy">
+            <span class="walkthrough-row-tag">Fallback logic</span>
+            <h3>Waterfall logic, step by step</h3>
+            <p>Provider fallbacks, verification gates, and the final-email formula.</p>
+          </div>
+          <span class="walkthrough-row-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="walkthrough-row" href="https://www.loom.com/share/13d742493d3947219fa96d3450818833" target="_blank" rel="noopener">
+          <span class="walkthrough-row-num">03</span>
+          <div class="walkthrough-row-thumb">
+            <img src="assets/screens/ai-personalization-pipeline-in-n8n-thumbnail.jpg" alt="AI personalization pipeline in n8n thumbnail">
+            <span class="walkthrough-row-play">PLAY ↗</span>
+          </div>
+          <div class="walkthrough-row-copy">
+            <span class="walkthrough-row-tag">AI automation</span>
+            <h3>AI personalization pipeline in n8n</h3>
+            <p>Company summary, segmentation, and structured copy generation.</p>
+          </div>
+          <span class="walkthrough-row-arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
-      <div class="walkthrough-preview-intro">
-        <p>Short, practical walkthroughs of the enrichment logic, waterfall decisions, and automation behind the finished outbound system.</p>
-        <span>3 technical walkthroughs</span>
-      </div>
-    </div>
-    <div class="loom-grid walkthrough-preview-grid">
-      <div class="loom-card loom-card--featured">
-        <div class="loom-thumb">
-          <span class="walkthrough-card-type">Data architecture</span>
-          <img src="assets/screens/building-the-enrichment-table-thumbnail.jpg" alt="Building the enrichment table thumbnail" class="loom-cover-img">
-          <a href="https://www.loom.com/share/22cb29e56c954a86a1086f96f8c4a61a" target="_blank" rel="noopener" class="play-overlay" aria-label="Watch building the enrichment table on Loom">
-            <span class="play-btn">▶</span>
-          </a>
-        </div>
-        <div class="loom-body">
-          <div class="loom-num">WALKTHROUGH 01</div>
-          <div class="loom-title">Building the enrichment table</div>
-          <div class="loom-desc">Table structure, target-contact logic, and enrichment columns.</div>
-        </div>
-      </div>
-      <div class="loom-card loom-card--compact">
-        <div class="loom-thumb">
-          <span class="walkthrough-card-type">Fallback logic</span>
-          <img src="assets/screens/waterfall-logic-step-by-step-thumbnail.jpg" alt="Waterfall logic, step by step thumbnail" class="loom-cover-img">
-          <a href="https://www.loom.com/share/63913f82f33a4c8aafef79041b8bd659" target="_blank" rel="noopener" class="play-overlay" aria-label="Watch waterfall logic step by step on Loom">
-            <span class="play-btn">▶</span>
-          </a>
-        </div>
-        <div class="loom-body">
-          <div class="loom-num">WALKTHROUGH 02</div>
-          <div class="loom-title">Waterfall logic, step by step</div>
-          <div class="loom-desc">Provider fallbacks, verification gates, and the final-email formula.</div>
-        </div>
-      </div>
-      <div class="loom-card loom-card--compact">
-        <div class="loom-thumb">
-          <span class="walkthrough-card-type">AI automation</span>
-          <img src="assets/screens/ai-personalization-pipeline-in-n8n-thumbnail.jpg" alt="AI personalization pipeline in n8n thumbnail" class="loom-cover-img">
-          <a href="https://www.loom.com/share/13d742493d3947219fa96d3450818833" target="_blank" rel="noopener" class="play-overlay" aria-label="Watch AI personalization pipeline in n8n on Loom">
-            <span class="play-btn">▶</span>
-          </a>
-        </div>
-        <div class="loom-body">
-          <div class="loom-num">WALKTHROUGH 03</div>
-          <div class="loom-title">AI personalization pipeline in n8n</div>
-          <div class="loom-desc">Company summary, segmentation, and structured copy generation.</div>
-        </div>
-      </div>
-    </div>
-    <div class="walkthrough-preview-footer">
-      <p>Watch the systems being built, step by step.</p>
-      <div class="see-more-row">
-        <a href="#walkthrough" onclick="showPage('walkthrough'); return false;" class="btn btn-primary">Explore all walkthroughs →</a>
+      <div class="walkthrough-footnote">
+        <span>Build log / source → enrich → verify → personalize</span>
+        <span>Recorded on Loom</span>
       </div>
     </div>
   </div>
@@ -1601,9 +1589,9 @@
 
   // Reveal meaningful groups as they enter the viewport; keep reduced-motion users static.
   (function(){
-    var targets = document.querySelectorAll('.section-tag, .section-title, .section-lead, .route-card, .build-card, .control-card, .engineering-note, .loom-card, .experience-card, .about-grid, .timeline, .strength-note, .page-cta');
+    var targets = document.querySelectorAll('.section-tag, .section-title, .section-lead, .route-card, .build-card, .control-card, .engineering-note, .loom-card, .walkthrough-row, .experience-card, .about-grid, .timeline, .strength-note, .page-cta');
     targets.forEach(function(target){ target.classList.add('reveal'); });
-    document.querySelectorAll('.route-grid, .control-grid, .loom-grid').forEach(function(group){
+    document.querySelectorAll('.route-grid, .control-grid, .loom-grid, .walkthrough-log').forEach(function(group){
       Array.from(group.children).forEach(function(item,index){ item.style.setProperty('--reveal-delay', Math.min(index,3) * 90 + 'ms'); });
     });
     document.body.classList.add('motion-ready');
