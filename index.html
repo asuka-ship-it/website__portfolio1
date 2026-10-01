@@ -500,11 +500,11 @@
   .scope-item:last-child{border-right:0}
   .scope-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.07em;color:var(--accent-2);text-transform:uppercase;margin-bottom:8px}
   .scope-item p{font-size:13px;line-height:1.65;color:#3D4650}
-  .experience-results{display:grid;grid-template-columns:repeat(5,1fr);padding:24px 32px}
-  .experience-result{padding:2px 18px;border-right:1px solid var(--line)}
+  .experience-results{display:grid;grid-template-columns:repeat(6,1fr);padding:24px 32px;background:linear-gradient(135deg,#10251D,#173B2B)}
+  .experience-result{padding:4px 18px;border-right:1px solid rgba(255,255,255,.14)}
   .experience-result:first-child{padding-left:0}.experience-result:last-child{border-right:0;padding-right:0}
-  .experience-result strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:27px;line-height:1.1;color:#14181C;margin-bottom:5px}
-  .experience-result span{display:block;font-family:'IBM Plex Mono',monospace;font-size:8px;line-height:1.5;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+  .experience-result strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:31px;line-height:1.1;color:#B7FBD8;margin-bottom:6px}
+  .experience-result span{display:block;font-family:'IBM Plex Mono',monospace;font-size:8px;line-height:1.5;letter-spacing:.05em;color:rgba(255,255,255,.7);text-transform:uppercase}
 
   @keyframes heroRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
   @keyframes panelFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
@@ -744,10 +744,40 @@
   </div>
 </header>
 
+<section id="experience" class="experience-section" aria-labelledby="experience-title">
+  <div class="wrap">
+    <div class="section-tag">// 01 / Applied experience</div>
+    <h2 class="section-title" id="experience-title">Built and operated outbound campaigns end to end.</h2>
+    <p class="section-lead">Hands-on freelance work covering campaign strategy, data operations, Clay enrichment, three-touch email copy, and outbound execution.</p>
+    <article class="experience-card">
+      <div class="experience-top">
+        <div>
+          <h3 class="experience-role">Freelance GTM Automation</h3>
+          <p class="experience-summary">Owned the operating path from ICP definition and targeting criteria through enriched lead data, campaign-copy creation, sequence execution, and response reporting.</p>
+        </div>
+        <div class="experience-date">May 2026 - Jul 2026</div>
+      </div>
+      <div class="experience-scope">
+        <div class="scope-item"><span class="scope-label">01 / Strategy</span><p>Defined the ICP and scoped target criteria for the client's outbound campaigns.</p></div>
+        <div class="scope-item"><span class="scope-label">02 / Data system</span><p>Sourced accounts and contacts in AI Ark, then enriched and verified them in Clay using company signals, buying signals, and work-email enrichment.</p></div>
+        <div class="scope-item"><span class="scope-label">03 / Copy + execution</span><p>Wrote the three-touch campaign copy, ran four campaigns end to end, and tracked replies through completion.</p></div>
+      </div>
+      <div class="experience-results" aria-label="Freelance GTM automation results">
+        <div class="experience-result"><strong>4</strong><span>Campaigns operated</span></div>
+        <div class="experience-result"><strong>3-touch</strong><span>Email copy written</span></div>
+        <div class="experience-result"><strong>13K</strong><span>Contacts reached</span></div>
+        <div class="experience-result"><strong>32K</strong><span>Emails sent</span></div>
+        <div class="experience-result"><strong>120</strong><span>Total replies</span></div>
+        <div class="experience-result"><strong>25</strong><span>Positive responses</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section id="introduction" class="intro-video-section" aria-labelledby="introduction-title">
   <div class="wrap intro-video-grid">
     <div class="intro-video-copy">
-      <div class="section-tag">// 01 / A quick introduction</div>
+      <div class="section-tag">// 02 / A quick introduction</div>
       <h2 class="section-title" id="introduction-title">Meet the operator behind the systems.</h2>
       <p class="section-lead">A short introduction to who I am, the experience behind my GTM work, and the way I approach building practical outbound systems.</p>
       <div class="intro-video-note">Personal introduction on Loom</div>
@@ -763,7 +793,7 @@
 
 <section id="about" class="about-section">
   <div class="wrap">
-    <div class="section-tag">// 02 / The operator</div>
+    <div class="section-tag">// 03 / The operator</div>
     <h2 class="section-title">Project-management discipline, applied to GTM systems.</h2>
     <div class="about-grid">
       <div class="about-copy">
@@ -780,7 +810,7 @@
 
 <section id="work">
   <div class="wrap">
-    <div class="section-tag">// 03 / Selected work</div>
+    <div class="section-tag">// 04 / Selected work</div>
     <h2 class="section-title">Five builds. Every one with its numbers attached.</h2>
     <p class="section-lead">Each case study opens onto the full build: the results first, then how it was put together and what it was built with.</p>
     <div class="case-list">
@@ -860,7 +890,7 @@
 
 <section id="engineering" class="engineering-section" aria-labelledby="engineering-title">
   <div class="wrap">
-    <div class="section-tag">// 04 / Production mindset</div>
+    <div class="section-tag">// 05 / Production mindset</div>
     <div class="engineering-head">
       <h2 class="section-title" id="engineering-title">The workflow is only useful if it survives imperfect data.</h2>
       <p class="section-lead">These are the controls I use to evaluate a GTM system before handoff. They make the difference between a demo that runs once and an operation a team can trust.</p>
@@ -896,7 +926,7 @@
 
 <section id="walkthrough-preview">
   <div class="wrap">
-    <div class="section-tag">// 05 / Behind the build</div>
+    <div class="section-tag">// 06 / Behind the build</div>
     <h2 class="section-title">See the logic, not just the final table.</h2>
     <p class="section-lead">Short, practical walkthroughs of the enrichment logic, waterfall decisions, and automation behind the finished outbound system.</p>
     <div class="loom-grid" style="grid-template-columns:1fr; max-width:420px;">
@@ -920,36 +950,6 @@
     </div>
   </div>
 </section>
-
-<section id="experience" class="experience-section" aria-labelledby="experience-title">
-  <div class="wrap">
-    <div class="section-tag">// 06 / Applied experience</div>
-    <h2 class="section-title" id="experience-title">Built and operated outbound campaigns end to end.</h2>
-    <p class="section-lead">Hands-on freelance work covering campaign strategy, data operations, Clay enrichment, and outbound execution.</p>
-    <article class="experience-card">
-      <div class="experience-top">
-        <div>
-          <h3 class="experience-role">Freelance GTM Automation</h3>
-          <p class="experience-summary">Owned the operating path from ICP definition and targeting criteria through enriched lead data, sequence execution, and response reporting.</p>
-        </div>
-        <div class="experience-date">May 2026 - Jul 2026</div>
-      </div>
-      <div class="experience-scope">
-        <div class="scope-item"><span class="scope-label">01 / Strategy</span><p>Defined the ICP and scoped target criteria for the client's outbound campaigns.</p></div>
-        <div class="scope-item"><span class="scope-label">02 / Data system</span><p>Sourced accounts and contacts in AI Ark, then enriched and verified them in Clay using company signals, buying signals, and work-email enrichment.</p></div>
-        <div class="scope-item"><span class="scope-label">03 / Execution</span><p>Ran four campaigns end to end across a three-touch email sequence and tracked replies through completion.</p></div>
-      </div>
-      <div class="experience-results" aria-label="Freelance GTM automation results">
-        <div class="experience-result"><strong>4</strong><span>Campaigns operated</span></div>
-        <div class="experience-result"><strong>13K</strong><span>Contacts reached</span></div>
-        <div class="experience-result"><strong>32K</strong><span>Emails sent</span></div>
-        <div class="experience-result"><strong>120</strong><span>Total replies</span></div>
-        <div class="experience-result"><strong>25</strong><span>Positive responses</span></div>
-      </div>
-    </article>
-  </div>
-</section>
-
 
 <footer>
   <div class="wrap" id="contact">
