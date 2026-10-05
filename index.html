@@ -866,15 +866,15 @@
     <p class="section-lead">Each case study opens onto the full build: the results first, then how it was put together and what it was built with.</p>
     <div class="case-list">
       <a class="case-tile case-tile--featured" href="#case-06" onclick="showPage('case-06'); return false;">
-        <div class="case-tile-shot case-tile-shot--empty" aria-hidden="true"><span>Screenshot coming</span></div>
+        <div class="case-tile-shot"><img src="assets/screens/donorlens-lead-funnel.png" alt="Lead funnel: 8,079 raw contacts filtered down to 539" loading="lazy"></div>
         <div class="case-tile-body">
           <div class="case-tile-num">CASE STUDY / 01 &middot; LATEST</div>
-          <h3 class="case-tile-title">New project: details landing soon</h3>
-          <p class="case-tile-sub">Sourced in AI Ark. Screenshots, KPIs and the email copy go up here shortly.</p>
+          <h3 class="case-tile-title">Donorlens: nonprofit outbound, list to reply</h3>
+          <p class="case-tile-sub">Raw export to triaged replies: five filters, per-contact copy across three angles, and an agent that sorts what comes back.</p>
           <ul class="case-tile-kpis">
-            <li><strong>Soon</strong><span>KPI 1</span></li>
-            <li><strong>Soon</strong><span>KPI 2</span></li>
-            <li><strong>Soon</strong><span>KPI 3</span></li>
+            <li><strong>8,079</strong><span>Contacts screened</span></li>
+            <li><strong>539</strong><span>Clean decision-makers</span></li>
+            <li><strong>6</strong><span>Reply types auto-sorted</span></li>
           </ul>
           <span class="case-tile-go">Read the build &rarr;</span>
         </div>
@@ -1069,15 +1069,15 @@
     <div class="wrap" style="padding-bottom:72px;">
     <div class="case-list">
       <a class="case-tile case-tile--featured" href="#case-06" onclick="showPage('case-06'); return false;">
-        <div class="case-tile-shot case-tile-shot--empty" aria-hidden="true"><span>Screenshot coming</span></div>
+        <div class="case-tile-shot"><img src="assets/screens/donorlens-lead-funnel.png" alt="Lead funnel: 8,079 raw contacts filtered down to 539" loading="lazy"></div>
         <div class="case-tile-body">
           <div class="case-tile-num">CASE STUDY / 01 &middot; LATEST</div>
-          <h3 class="case-tile-title">New project: details landing soon</h3>
-          <p class="case-tile-sub">Sourced in AI Ark. Screenshots, KPIs and the email copy go up here shortly.</p>
+          <h3 class="case-tile-title">Donorlens: nonprofit outbound, list to reply</h3>
+          <p class="case-tile-sub">Raw export to triaged replies: five filters, per-contact copy across three angles, and an agent that sorts what comes back.</p>
           <ul class="case-tile-kpis">
-            <li><strong>Soon</strong><span>KPI 1</span></li>
-            <li><strong>Soon</strong><span>KPI 2</span></li>
-            <li><strong>Soon</strong><span>KPI 3</span></li>
+            <li><strong>8,079</strong><span>Contacts screened</span></li>
+            <li><strong>539</strong><span>Clean decision-makers</span></li>
+            <li><strong>6</strong><span>Reply types auto-sorted</span></li>
           </ul>
           <span class="case-tile-go">Read the build &rarr;</span>
         </div>
@@ -1147,40 +1147,84 @@
   <header class="page-head">
     <div class="wrap">
       <a href="#workflows" onclick="showPage('workflows'); return false;" class="page-nav-back">&larr; All case studies</a>
-      <div class="eyebrow">CASE STUDY / 01 &middot; AI ARK SOURCING</div>
-      <h1 class="page-title">New project: details landing soon</h1>
-      <p class="page-sub">Accounts and contacts for this build are sourced in AI Ark, then carried into enrichment, verification and outreach. The full write-up, results and email copy are being added.</p>
+      <div class="eyebrow">CASE STUDY / 01 &middot; SOURCING &rarr; COPY &rarr; REPLY TRIAGE</div>
+      <h1 class="page-title">Donorlens: nonprofit outbound, list to reply</h1>
+      <p class="page-sub">An end-to-end outbound build for a nonprofit donor-analytics product. 8,079 raw contacts screened down to the 539 worth sending to, personalized copy written per contact across three competing angles, and an n8n agent that classifies every reply before a human sees it.</p>
     </div>
   </header>
   <section>
     <div class="wrap" style="padding-bottom:72px;">
       <div class="kpi-band" aria-label="Results at a glance">
-        <div class="kpi"><strong>Soon</strong><span>KPI 1 &middot; coming soon</span></div>
-        <div class="kpi"><strong>Soon</strong><span>KPI 2 &middot; coming soon</span></div>
-        <div class="kpi"><strong>Soon</strong><span>KPI 3 &middot; coming soon</span></div>
+        <div class="kpi"><strong>8,079</strong><span>Contacts screened from the raw export</span></div>
+        <div class="kpi"><strong>539</strong><span>Clean decision-makers, one per organisation</span></div>
+        <div class="kpi"><strong>6</strong><span>Reply types classified automatically</span></div>
       </div>
       <div class="case-detail-grid">
         <div class="case-detail-main">
           <h2 class="case-h2">How I built it</h2>
           <ul class="case-bullets">
-            <li>Sourced the target accounts and contacts in AI Ark.</li>
-            <li>Remaining build steps will be added with the screenshots.</li>
+            <li>Pulled the raw list out of AI Ark: 8,079 contacts, every title and company size included.</li>
+            <li>Kept only addresses that passed an email-status and SMTP check &mdash; that step alone removed more than half the list, down to 3,880.</li>
+            <li>Filtered to nonprofit company type, dropping the vendors and other organisation types the same export had swept in (3,050).</li>
+            <li>Narrowed to decision-maker titles only &mdash; CEO, Executive Director, Director, Founder, VP &mdash; because that is where budget authority sits (1,020).</li>
+            <li>Collapsed duplicates so each organisation appears once instead of three times, leaving 539 contacts worth sending to.</li>
+            <li>Hand-checked a 12-contact sample and rendered the real copy against it before anything went near a sequencer.</li>
+            <li>Wrote three competing angles &mdash; lapsed donors, time saved, peer comparison &mdash; so the angle could be tested rather than guessed.</li>
+            <li>Drafted three tone variants of the same email (direct, story, mission) so voice could be tested separately from angle.</li>
+            <li>Generated the subject and body straight into the export as <code>subject_1</code> and <code>email_1</code> columns, so the file imports into Instantly or Smartlead without hand-editing.</li>
+            <li>Built a reply-triage agent in n8n that classifies every reply as POSITIVE, NEGATIVE, REFERRAL, LATER, AUTO_REPLY or NEUTRAL.</li>
+            <li>Routed positives to Slack for a same-day response; everything else logs to a sheet, and negatives are flagged DO NOT CONTACT so they cannot re-enter a sequence.</li>
+            <li>Kept every sample recipient fictional, so the build can be shown publicly without exposing a single real prospect.</li>
           </ul>
         </div>
         <aside class="case-detail-side">
           <h2 class="case-h2">Tools involved</h2>
           <ul class="tool-bullets">
-            <li><strong>AI Ark</strong><span>Sourcing: the account and contact list this build starts from.</span></li>
+            <li><strong>AI Ark</strong><span>The raw account and contact export this build starts from.</span></li>
+            <li><strong>Email + SMTP verification</strong><span>Status checks that cut the list by more than half before any copy was written.</span></li>
+            <li><strong>Claude Code skill</strong><span>Wrote the subject and body per row directly into the CSV.</span></li>
+            <li><strong>n8n</strong><span>The reply-triage agent: classify, route, log.</span></li>
+            <li><strong>Slack + Google Sheets</strong><span>Where positive replies and everything else land.</span></li>
+            <li><strong>Instantly / Smartlead</strong><span>The sequencer the finished CSV is built to import into.</span></li>
           </ul>
         </aside>
       </div>
       <h2 class="case-h2 case-h2--wide">What it produced</h2>
-      <div class="shot-placeholder" style="margin:0 0 42px;"><div class="ph-title">Screenshots coming soon</div><div class="ph-sub">Tables and results from this build will appear here.</div></div>
+            <div class="shot-stack">
+        <img src="assets/screens/donorlens-lead-funnel.png" alt="Lead funnel: 8,079 raw AI Ark contacts filtered through five stages down to 539" loading="lazy">
+        <div class="shot-caption">Five filters, each one cutting the list: verified email, nonprofit company type, decision-maker title, one contact per organisation.</div>
+        <img src="assets/screens/donorlens-csv-copy-filled.png" alt="Export with subject_1 and email_1 columns filled per contact" loading="lazy">
+        <div class="shot-caption">Subject and body written straight into the export, one per row &mdash; the file imports into a sequencer as-is.</div>
+        <img src="assets/screens/donorlens-email-by-angle.png" alt="Three contacts, three different outreach angles" loading="lazy">
+        <div class="shot-caption">The same product pitched three ways &mdash; lapsed donors, time saved, peer comparison &mdash; so the angle is a test, not a guess.</div>
+        <img src="assets/screens/donorlens-email-variants-abc.png" alt="Three tone variants of the same email: direct, story, mission" loading="lazy">
+        <div class="shot-caption">Voice tested separately from angle: the same message written direct, as a story, and mission-first.</div>
+        <img src="assets/screens/reply-triage-agent-n8n.png" alt="n8n Reply Triage Agent: webhook, classify, route to Slack or log to sheet" loading="lazy">
+        <div class="shot-caption">Every reply classified before a human sees it. Positives go to Slack; the rest is logged, and negatives are flagged DO NOT CONTACT.</div>
+      </div>
       <h2 class="case-h2 case-h2--wide">The email copy</h2>
       <div class="copy-grid">
-        <article class="copy-card copy-card--empty"><div class="copy-label">EMAIL 01</div><p>Copy coming soon.</p></article>
-        <article class="copy-card copy-card--empty"><div class="copy-label">EMAIL 02</div><p>Copy coming soon.</p></article>
-        <article class="copy-card copy-card--empty"><div class="copy-label">EMAIL 03</div><p>Copy coming soon.</p></article>
+        <article class="copy-card"><div class="copy-label">LAPSED DONORS &middot; SUBJECT: a donor who went quiet</div><p>Maya,
+
+How many major donors at Brightpath Community Fund have gone six months without a touch?
+
+Donorlens scans your donor data every night and gives you a short list of who needs a call, with the reason next to each name.
+
+Want a sample list for Brightpath Community Fund? Reply "yes" and I'll send it.</p></article>
+        <article class="copy-card"><div class="copy-label">TIME SAVED &middot; SUBJECT: the donor list, done for you</div><p>Daniel,
+
+How many hours a week does your team spend pulling donor data out of the CRM before anyone can act on it?
+
+Donorlens does that pull overnight. You get one ranked list each morning, with a reason for every name on it.
+
+Happy to send a sample for Harbor Youth Alliance. Should I?</p></article>
+        <article class="copy-card"><div class="copy-label">PEER COMPARISON &middot; SUBJECT: what other development teams check first</div><p>Sofia,
+
+Most development teams find out a donor has drifted only after the next gift is missed. Is Greenleaf Food Network any different?
+
+Donorlens flags those donors before that happens. Each morning, your team gets a short list and the reason behind each name.
+
+Want to see a sample built for Greenleaf Food Network?</p></article>
       </div>
       <div class="page-cta">
         <div class="page-cta-copy">
