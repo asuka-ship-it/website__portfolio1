@@ -729,6 +729,10 @@
   .loom-card--featured{border-color:rgba(31,122,84,.42);box-shadow:0 16px 44px rgba(31,122,84,.14)}
   .loom-card--featured .loom-num{color:var(--accent);font-weight:700}
 </style>
+<style>
+  .copy-intro{font-size:13.5px;line-height:1.7;color:var(--muted);max-width:720px;margin:-6px 0 18px}
+  .copy-grid + .case-h2--wide{margin-top:44px}
+</style>
 </head>
 <body>
 
@@ -1195,14 +1199,11 @@
         <div class="shot-caption">Five filters, each one cutting the list: verified email, nonprofit company type, decision-maker title, one contact per organisation.</div>
         <img src="assets/screens/donorlens-csv-copy-filled.png" alt="Export with subject_1 and email_1 columns filled per contact" loading="lazy">
         <div class="shot-caption">Subject and body written straight into the export, one per row &mdash; the file imports into a sequencer as-is.</div>
-        <img src="assets/screens/donorlens-email-by-angle.png" alt="Three contacts, three different outreach angles" loading="lazy">
-        <div class="shot-caption">The same product pitched three ways &mdash; lapsed donors, time saved, peer comparison &mdash; so the angle is a test, not a guess.</div>
-        <img src="assets/screens/donorlens-email-variants-abc.png" alt="Three tone variants of the same email: direct, story, mission" loading="lazy">
-        <div class="shot-caption">Voice tested separately from angle: the same message written direct, as a story, and mission-first.</div>
         <img src="assets/screens/reply-triage-agent-n8n.png" alt="n8n Reply Triage Agent: webhook, classify, route to Slack or log to sheet" loading="lazy">
         <div class="shot-caption">Every reply classified before a human sees it. Positives go to Slack; the rest is logged, and negatives are flagged DO NOT CONTACT.</div>
       </div>
-      <h2 class="case-h2 case-h2--wide">The email copy</h2>
+      <h2 class="case-h2 case-h2--wide">The email copy: three angles</h2>
+      <p class="copy-intro">The same product pitched three ways, so the angle is a test rather than a guess. Every recipient below is fictional.</p>
       <div class="copy-grid">
         <article class="copy-card"><div class="copy-label">LAPSED DONORS &middot; SUBJECT: a donor who went quiet</div><p>Maya,
 
@@ -1210,21 +1211,67 @@ How many major donors at Brightpath Community Fund have gone six months without 
 
 Donorlens scans your donor data every night and gives you a short list of who needs a call, with the reason next to each name.
 
-Want a sample list for Brightpath Community Fund? Reply "yes" and I'll send it.</p></article>
+Want a sample list for Brightpath Community Fund? Reply &ldquo;yes&rdquo; and I&rsquo;ll send it.
+
+[Your Name]</p></article>
         <article class="copy-card"><div class="copy-label">TIME SAVED &middot; SUBJECT: the donor list, done for you</div><p>Daniel,
 
 How many hours a week does your team spend pulling donor data out of the CRM before anyone can act on it?
 
 Donorlens does that pull overnight. You get one ranked list each morning, with a reason for every name on it.
 
-Happy to send a sample for Harbor Youth Alliance. Should I?</p></article>
+Happy to send a sample for Harbor Youth Alliance. Should I?
+
+[Your Name]</p></article>
         <article class="copy-card"><div class="copy-label">PEER COMPARISON &middot; SUBJECT: what other development teams check first</div><p>Sofia,
 
 Most development teams find out a donor has drifted only after the next gift is missed. Is Greenleaf Food Network any different?
 
 Donorlens flags those donors before that happens. Each morning, your team gets a short list and the reason behind each name.
 
-Want to see a sample built for Greenleaf Food Network?</p></article>
+Want to see a sample built for Greenleaf Food Network?
+
+[Your Name]</p></article>
+      </div>
+      <h2 class="case-h2 case-h2--wide">The same email, three tones</h2>
+      <p class="copy-intro">One angle, written three ways, so voice can be tested separately from message.</p>
+      <div class="copy-grid">
+        <article class="copy-card"><div class="copy-label">VARIANT A &middot; DIRECT &middot; SUBJECT: Brightpath Community Fund&rsquo;s donor report</div><p>Hey Maya, you are running a nonprofit focused on youth programs which resonates with us a lot.
+
+I am [Your Name] from Gratefully. Our CEO spent twenty years in volunteering with nonprofits and creating software across Silicon Valley.
+
+He saw a pattern where most nonprofit leaders end up as the bridge between the CRM and the six other systems around it. That work is not fundraising, and it never stops.
+
+Gratefully goes through your whole portfolio overnight and opens with a ranked list of who needs attention, each one with the reason attached.
+
+Want us to run Brightpath Community Fund&rsquo;s latest annual report through it and send back what it finds? On the house!
+
+Regards,
+[Your Name]</p></article>
+        <article class="copy-card"><div class="copy-label">VARIANT B &middot; STORY &middot; SUBJECT: a quick look at Brightpath Community Fund&rsquo;s donors</div><p>Hey Maya, seeing that you are running a nonprofit focused on youth programs resonates with us a lot.
+
+I am [Your Name] from Gratefully. Our CEO spent twenty years volunteering with nonprofits as well as creating software across Silicon Valley.
+
+He started Gratefully after a nonprofit asked whether they could paste their donor data into ChatGPT for donor analytics. Right instinct, wrong place to put it.
+
+Gratefully runs your whole portfolio overnight and hands back a ranked list of who needs attention, each with the reason cited straight from your own data.
+
+Want us to run Brightpath Community Fund&rsquo;s latest report through it and send back what it finds? No strings attached!
+
+Regards,
+[Your Name]</p></article>
+        <article class="copy-card"><div class="copy-label">VARIANT C &middot; MISSION &middot; SUBJECT: Brightpath Community Fund + Gratefully</div><p>Hey Maya, you are running a nonprofit focused on youth programs which resonates with us a lot.
+
+I am [Your Name] from Gratefully. Our CEO spent twenty years volunteering with nonprofits as well as creating software across Silicon Valley.
+
+He started Gratefully to help non-profits like Brightpath Community Fund secure more donors.
+
+Gratefully runs your whole portfolio overnight and hands back a ranked list of who needs attention, each with the reason cited straight from your own data.
+
+Want us to run latest annual report of Brightpath Community Fund through it and send back what it finds? On the house!
+
+Regards,
+[Your Name]</p></article>
       </div>
       <div class="page-cta">
         <div class="page-cta-copy">
