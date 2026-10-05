@@ -1168,17 +1168,17 @@
           <h2 class="case-h2">How I built it</h2>
           <ul class="case-bullets">
             <li>Pulled the raw list out of AI Ark: 8,079 contacts, every title and company size included.</li>
-            <li>Screened for deliverability first &mdash; email status and SMTP checks &mdash; so no copy was written for an address that would bounce.</li>
+            <li>Screened for deliverability first, running email status and SMTP checks, so no copy was written for an address that would bounce.</li>
             <li>Filtered to nonprofit company type, dropping the vendors and other organisation types the same export had swept in.</li>
-            <li>Narrowed to decision-maker titles only &mdash; CEO, Executive Director, Director, Founder, VP &mdash; because that is where budget authority sits.</li>
+            <li>Narrowed to decision-maker titles only: CEO, Executive Director, Director, Founder, VP. That is where budget authority sits.</li>
             <li>Collapsed duplicates so each organisation appears once instead of several times, which left roughly 2,000 contacts worth emailing.</li>
             <li>Hand-checked a small sample and rendered the real copy against it before anything went near a sequencer.</li>
-            <li>Wrote three competing angles &mdash; lapsed donors, time saved, peer comparison &mdash; so the angle could be tested rather than guessed.</li>
+            <li>Wrote three competing angles: lapsed donors, time saved, peer comparison. That way the angle could be tested rather than guessed.</li>
             <li>Drafted three tone variants of the same email (direct, story, mission) so voice could be tested separately from angle.</li>
             <li>Generated the subject and body straight into the export as <code>subject_1</code> and <code>email_1</code> columns, so the file imports into Instantly or Smartlead without hand-editing.</li>
             <li>Built a reply-triage agent in n8n that classifies every reply as POSITIVE, NEGATIVE, REFERRAL, LATER, AUTO_REPLY or NEUTRAL.</li>
             <li>Routed positives to Slack for a same-day response; everything else logs to a sheet, and negatives are flagged DO NOT CONTACT so they cannot re-enter a sequence.</li>
-            <li>Ran two campaigns, one touch point each, across the full 2,000 &mdash; which returned 3 positive replies.</li>
+            <li>Ran two campaigns, one touch point each, across the full 2,000. They returned 3 positive replies.</li>
             <li>Kept every sample recipient shown here fictional, so the build can be published without exposing a single real prospect.</li>
           </ul>
         </div>
@@ -1330,7 +1330,7 @@ Regards,
       <h2 class="case-h2 case-h2--wide">What it produced</h2>
       <div class="shot-stack">
         <img src="assets/screens/lead-scraper-pipeline-gate.png" alt="Diagram: the seven-stage Lead Scraper pipeline, and why the verification gate exists" loading="lazy">
-        <div class="shot-caption">Pipeline diagram. The two gate stages are the ones that mattered: of six &ldquo;contacts&rdquo; the enrichment tool returned across 18 companies, manual review found two real people &mdash; and every guessed address had been marked verified.</div>
+        <div class="shot-caption">Pipeline diagram. The two gate stages are the ones that mattered: of six &ldquo;contacts&rdquo; the enrichment tool returned across 18 companies, manual review found two real people, and every guessed address had been marked verified.</div>
       </div>
       <div class="page-cta">
         <div class="page-cta-copy">
