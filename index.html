@@ -737,6 +737,38 @@
   section[id],header.hero{scroll-margin-top:96px}
   @media (max-width:760px){section[id],header.hero{scroll-margin-top:80px}}
 </style>
+<style>
+  .seq-list{display:grid;gap:13px;margin-bottom:8px}
+  .seq-card{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.88);overflow:hidden}
+  .seq-top{display:flex;justify-content:space-between;align-items:center;gap:12px;
+           padding:12px 18px;background:rgba(20,24,28,.03);border-bottom:1px solid var(--line)}
+  .seq-step{font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.08em;color:var(--accent-2)}
+  .seq-when{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+  .seq-subject{font-family:'DM Mono',monospace;font-size:11px;color:#3D4650;
+               padding:11px 18px;border-bottom:1px dashed var(--line)}
+  .seq-body{white-space:pre-line;font-size:13.5px;line-height:1.85;color:#2B3238;padding:16px 18px 18px}
+  .spin{background:rgba(122,46,82,.07);border:1px solid rgba(122,46,82,.18);
+        border-radius:5px;padding:1px 4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .var{font-family:'DM Mono',monospace;font-size:11.5px;background:rgba(31,122,84,.10);
+       color:var(--accent);border-radius:4px;padding:1px 4px;white-space:nowrap}
+  .var-list{list-style:none;display:grid;gap:9px;padding:0;margin:0 0 26px}
+  .var-list li{display:grid;grid-template-columns:200px minmax(0,1fr) 190px;gap:16px;align-items:baseline;
+               padding:12px 15px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.80)}
+  .var-list strong{font-family:'DM Mono',monospace;font-size:11.5px;color:var(--accent)}
+  .var-list span{font-size:13px;line-height:1.6;color:#2B3238}
+  .var-list em{font-family:'DM Mono',monospace;font-size:10.5px;font-style:normal;color:var(--muted);text-align:right}
+  .mission-note{padding:22px 24px;border:1px solid rgba(31,122,84,.24);border-radius:16px;
+                background:linear-gradient(135deg,rgba(31,122,84,.08),rgba(122,46,82,.05))}
+  .mission-label{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);margin-bottom:10px}
+  .mission-note p{font-size:13.5px;line-height:1.7;color:#2B3238}
+  .mission-example{margin:14px 0;padding:13px 15px;border-radius:10px;background:rgba(255,255,255,.75);
+                   border:1px solid var(--line);font-size:13px;line-height:1.9}
+  @media (max-width:760px){
+    .var-list li{grid-template-columns:1fr;gap:6px}
+    .var-list em{text-align:left}
+    .seq-body{font-size:13px;padding:14px}
+  }
+</style>
 </head>
 <body>
 
@@ -874,7 +906,7 @@
     <p class="section-lead">Each case study opens onto the full build: the results first, then how it was put together and what it was built with.</p>
     <div class="case-list">
       <a class="case-tile case-tile--featured" href="#case-06" onclick="showPage('case-06'); return false;">
-        <div class="case-tile-shot"><img src="assets/screens/gratefully-lead-funnel.png" alt="Lead funnel: a raw contact export narrowed stage by stage" loading="lazy"></div>
+        <div class="case-tile-shot"><img src="assets/screens/gratefully-campaign-results.png" alt="Campaign results by sequence" loading="lazy"></div>
         <div class="case-tile-body">
           <div class="case-tile-num">CASE STUDY / 01 &middot; LATEST</div>
           <h3 class="case-tile-title">Gratefully: nonprofit outbound, list to reply</h3>
@@ -1077,7 +1109,7 @@
     <div class="wrap" style="padding-bottom:72px;">
     <div class="case-list">
       <a class="case-tile case-tile--featured" href="#case-06" onclick="showPage('case-06'); return false;">
-        <div class="case-tile-shot"><img src="assets/screens/gratefully-lead-funnel.png" alt="Lead funnel: a raw contact export narrowed stage by stage" loading="lazy"></div>
+        <div class="case-tile-shot"><img src="assets/screens/gratefully-campaign-results.png" alt="Campaign results by sequence" loading="lazy"></div>
         <div class="case-tile-body">
           <div class="case-tile-num">CASE STUDY / 01 &middot; LATEST</div>
           <h3 class="case-tile-title">Gratefully: nonprofit outbound, list to reply</h3>
@@ -1201,81 +1233,106 @@
       </div>
       <h2 class="case-h2 case-h2--wide">What it produced</h2>
             <div class="shot-stack">
-        <img src="assets/screens/gratefully-lead-funnel.png" alt="Lead funnel chart: a raw AI Ark export narrowed through five filtering stages" loading="lazy">
-        <div class="shot-caption">The filtering method, charted on an illustrative sample export rather than the campaign totals: deliverability first, then company type, then decision-maker title, then one contact per organisation.</div>
+        <img src="assets/screens/gratefully-campaign-results.png" alt="Campaign results by sequence: contacts, replies, reply rate and positive replies for two sequences" loading="lazy">
+        <div class="shot-caption">Two of the four sequences. The redirection sequence re-contacted people who had already replied out of office or neutral, and returned twice the positive replies from less than half the contacts.</div>
         <img src="assets/screens/reply-triage-agent-n8n.png" alt="n8n Reply Triage Agent: webhook, classify, route to Slack or log to sheet" loading="lazy">
         <div class="shot-caption">Every reply classified before a human sees it. Positives go to Slack; the rest is logged, and negatives are flagged DO NOT CONTACT.</div>
       </div>
-      <h2 class="case-h2 case-h2--wide">The email copy: three angles</h2>
-      <p class="copy-intro">The same product pitched three ways, so the angle is a test rather than a guess. Every recipient below is fictional.</p>
-      <div class="copy-grid">
-        <article class="copy-card"><div class="copy-label">LAPSED DONORS &middot; SUBJECT: a donor who went quiet</div><p>Maya,
+      <h2 class="case-h2 case-h2--wide">The sequence, as it runs</h2>
+      <p class="copy-intro">Three steps over three days. Steps 2 and 3 carry no subject, so they land as replies in the same thread. Every sentence holds two phrasings, so no two sends go out byte identical, which is what keeps an account sending 32K emails out of spam folders. Anything in braces is filled per contact.</p>
+      <div class="seq-list">
+        <article class="seq-card">
+          <div class="seq-top"><span class="seq-step">STEP 1 &middot; VARIANT 1</span><span class="seq-when">Day 0</span></div>
+          <div class="seq-subject">Subject: <span class="var">{{companyName}}</span> &lt;&gt; Gratefully</div>
+          <div class="seq-body">Hey <span class="var">{{firstName}}</span>, <span class="spin">{{RANDOM | you are <span class="var">{{MissionLine}}</span> which resonates with me a lot. | seeing that you are <span class="var">{{MissionLine}}</span> resonates with me a lot.}}</span>
 
-How many major donors at Brightpath Community Fund have gone six months without a touch?
+I am Muddsar founder of Gratefully and I myself spent twenty years in volunteering with nonprofits and creating software across Silicon Valley.
 
-Gratefully scans your donor data every night and gives you a short list of who needs a call, with the reason next to each name.
+<span class="spin">{{RANDOM | I saw a pattern where most <span class="var">{{JobTitle}}</span> end up as the bridge between the CRM and the six other systems around it. | I noticed, most <span class="var">{{JobTitle}}</span> end up as the bridge between the CRM and the six other systems around it.}}</span> <span class="spin">{{RANDOM | That work is not fundraising, and it never stops | None of that reconciliation is fundraising, and it never stops}}</span>.
 
-Want a sample list for Brightpath Community Fund? Reply &ldquo;yes&rdquo; and I&rsquo;ll send it.
+<span class="spin">{{RANDOM | To resolve this, Gratefully goes through your whole portfolio overnight and opens with a ranked list of who needs attention and each one with the reason attached. | Gratefully runs your whole portfolio overnight and hands back a ranked list of who needs attention, with the reason attached to each.}}</span>
 
-[Your Name]</p></article>
-        <article class="copy-card"><div class="copy-label">TIME SAVED &middot; SUBJECT: the donor list, done for you</div><p>Daniel,
+Want me to run <span class="var">{{companyName}}</span>'s latest annual report through it and send back what it finds? <span class="spin">{{RANDOM | On the house| No strings attached}}</span>!
 
-How many hours a week does your team spend pulling donor data out of the CRM before anyone can act on it?
+Regards,
+<span class="var">{{accountSignature}}</span></div>
+        </article>
+        <article class="seq-card">
+          <div class="seq-top"><span class="seq-step">STEP 1 &middot; VARIANT 2</span><span class="seq-when">Day 0</span></div>
+          <div class="seq-subject">Subject: left blank, so Instantly reuses variant 1</div>
+          <div class="seq-body">Hey <span class="var">{{firstName}}</span>, <span class="spin">{{RANDOM | you are <span class="var">{{MissionLine}}</span> which resonates with me a lot. | seeing that you are <span class="var">{{MissionLine}}</span> resonates with me a lot.}}</span>
 
-Gratefully does that pull overnight. You get one ranked list each morning, with a reason for every name on it.
+I am Muddsar founder of Gratefully and I spent twenty years volunteering with nonprofits as well as creating software across Silicon Valley.
 
-Happy to send a sample for Harbor Youth Alliance. Should I?
+<span class="spin">{{RANDOM | I started Gratefully after a nonprofit asked whether they could paste their donor data into ChatGPT to get donor analytics. The instinct was right. The place to put it was not. | I started Gratefully after a nonprofit asked me if they could just paste their donor data into ChatGPT for donor analytics. Right instinct, wrong place to put it.}}</span>
 
-[Your Name]</p></article>
-        <article class="copy-card"><div class="copy-label">PEER COMPARISON &middot; SUBJECT: what other development teams check first</div><p>Sofia,
+<span class="spin">{{RANDOM | Gratefully goes through your whole portfolio overnight and opens with a ranked list of who needs attention, each one with the reason attached and cited to your own data. | Gratefully runs your whole portfolio overnight and hands back a ranked list of who needs attention, each with the reason cited straight from your own data.}}</span>
 
-Most development teams find out a donor has drifted only after the next gift is missed. Is Greenleaf Food Network any different?
+Want me to run <span class="var">{{companyName}}</span>'s latest report through it and send back what it finds? <span class="spin">{{RANDOM | On the house| No strings attached}}</span>!
 
-Gratefully flags those donors before that happens. Each morning, your team gets a short list and the reason behind each name.
+Regards,
+<span class="var">{{accountSignature}}</span></div>
+        </article>
+        <article class="seq-card">
+          <div class="seq-top"><span class="seq-step">STEP 1 &middot; VARIANT 3</span><span class="seq-when">Day 0</span></div>
+          <div class="seq-subject">Subject: left blank, so Instantly reuses variant 1</div>
+          <div class="seq-body">Hey <span class="var">{{firstName}}</span>, <span class="spin">{{RANDOM | you are <span class="var">{{MissionLine}}</span> which resonates with me a lot. | seeing that you are <span class="var">{{MissionLine}}</span> resonates with me a lot.}}</span>
 
-Want to see a sample built for Greenleaf Food Network?
+I am Muddsar founder of Gratefully and I spent twenty years volunteering with nonprofits as well as creating software across Silicon Valley.
 
-[Your Name]</p></article>
+<span class="spin">{{RANDOM | I started Gratefully so we can secure donors for non-profits like <span class="var">{{companyName}}</span>. | I started Gratefully to help non-profits like <span class="var">{{companyName}}</span> secure more donors.}}</span>
+
+<span class="spin">{{RANDOM | Gratefully goes through your whole portfolio overnight and opens with a ranked list of who needs attention, each one with the reason attached and cited to your own data. | Gratefully runs your whole portfolio overnight and hands back a ranked list of who needs attention, each with the reason cited straight from your own data.}}</span>
+
+Want me to run latest annual report of <span class="var">{{companyName}}</span> through it and send back what it finds? <span class="spin">{{RANDOM | On the house| No strings attached}}</span>!
+
+Regards,
+<span class="var">{{accountSignature}}</span></div>
+        </article>
+        <article class="seq-card">
+          <div class="seq-top"><span class="seq-step">STEP 2</span><span class="seq-when">Day 1</span></div>
+          <div class="seq-subject">No subject. Sends as a reply in the same thread</div>
+          <div class="seq-body"><span class="var">{{firstName}}</span>, <span class="spin">{{Random | following up on this| one more thought}}</span>.
+
+<span class="spin">{{RANDOM | Most <span class="var">{{JobTitle}}</span> cannot say which donor relationships are drifting without asking someone to spend a day pulling it together. | Most <span class="var">{{JobTitle}}</span> can't tell which donor relationships are drifting unless someone spends a day pulling the numbers together.}}</span>
+
+<span class="spin">{{RANDOM | By the time it shows in the numbers, the relationship has usually cooled. | By the time the numbers catch it, the relationship has usually already cooled.}}</span>
+
+<span class="spin">{{RANDOM | The report offer stands if it is useful. | Happy to still run that report if it's useful.}}</span>
+
+Sincerely,
+<span class="var">{{accountSignature}}</span></div>
+        </article>
+        <article class="seq-card">
+          <div class="seq-top"><span class="seq-step">STEP 3</span><span class="seq-when">Day 2</span></div>
+          <div class="seq-subject">No subject. Sends as a reply in the same thread</div>
+          <div class="seq-body"><span class="var">{{firstName}}</span>,
+
+<span class="spin">{{RANDOM | This is what the donor report will provide you: | Here's what the donor report gives you:}}</span>
+
+- Lapsed major donors worth a second look
+- Foundation connections
+- Planned giving signals
+
+<span class="spin">{{RANDOM | If donor context is not what is slowing your team down, say so and I will stop. | If donor context isn't what's slowing your team down, just say so and I'll stop.}}</span> <span class="spin">{{RANDOM | If someone else owns it, point me their way. | If it's someone else's territory, just point me their way.}}</span>
+
+Sincerely,
+<span class="var">{{accountSignature}}</span></div>
+        </article>
       </div>
-      <h2 class="case-h2 case-h2--wide">The same email, three tones</h2>
-      <p class="copy-intro">One angle, written three ways, so voice can be tested separately from message.</p>
-      <div class="copy-grid">
-        <article class="copy-card"><div class="copy-label">VARIANT A &middot; DIRECT &middot; SUBJECT: Brightpath Community Fund&rsquo;s donor report</div><p>Hey Maya, you are running a nonprofit focused on youth programs which resonates with us a lot.
-
-I am [Your Name] from Gratefully. Our CEO spent twenty years in volunteering with nonprofits and creating software across Silicon Valley.
-
-He saw a pattern where most nonprofit leaders end up as the bridge between the CRM and the six other systems around it. That work is not fundraising, and it never stops.
-
-Gratefully goes through your whole portfolio overnight and opens with a ranked list of who needs attention, each one with the reason attached.
-
-Want us to run Brightpath Community Fund&rsquo;s latest annual report through it and send back what it finds? On the house!
-
-Regards,
-[Your Name]</p></article>
-        <article class="copy-card"><div class="copy-label">VARIANT B &middot; STORY &middot; SUBJECT: a quick look at Brightpath Community Fund&rsquo;s donors</div><p>Hey Maya, seeing that you are running a nonprofit focused on youth programs resonates with us a lot.
-
-I am [Your Name] from Gratefully. Our CEO spent twenty years volunteering with nonprofits as well as creating software across Silicon Valley.
-
-He started Gratefully after a nonprofit asked whether they could paste their donor data into ChatGPT for donor analytics. Right instinct, wrong place to put it.
-
-Gratefully runs your whole portfolio overnight and hands back a ranked list of who needs attention, each with the reason cited straight from your own data.
-
-Want us to run Brightpath Community Fund&rsquo;s latest report through it and send back what it finds? No strings attached!
-
-Regards,
-[Your Name]</p></article>
-        <article class="copy-card"><div class="copy-label">VARIANT C &middot; MISSION &middot; SUBJECT: Brightpath Community Fund + Gratefully</div><p>Hey Maya, you are running a nonprofit focused on youth programs which resonates with us a lot.
-
-I am [Your Name] from Gratefully. Our CEO spent twenty years volunteering with nonprofits as well as creating software across Silicon Valley.
-
-He started Gratefully to help non-profits like Brightpath Community Fund secure more donors.
-
-Gratefully runs your whole portfolio overnight and hands back a ranked list of who needs attention, each with the reason cited straight from your own data.
-
-Want us to run latest annual report of Brightpath Community Fund through it and send back what it finds? On the house!
-
-Regards,
-[Your Name]</p></article>
+      <h2 class="case-h2 case-h2--wide">The variables behind it</h2>
+      <p class="copy-intro">Four come straight off the contact row. The fifth is the one that does the work.</p>
+      <ul class="var-list">
+          <li><strong>{{firstName}}</strong><span>First name from the verified contact row.</span><em>Maya</em></li>
+          <li><strong>{{companyName}}</strong><span>Organisation name, normalised so it reads naturally mid sentence.</span><em>Brightpath Community Fund</em></li>
+          <li><strong>{{JobTitle}}</strong><span>Title reduced to a plural role noun so it fits "most ___ end up as the bridge".</span><em>development directors</em></li>
+          <li><strong>{{accountSignature}}</strong><span>Set once on the sending account in Instantly.</span><em>Muddsar, Gratefully</em></li>
+      </ul>
+      <div class="mission-note">
+        <div class="mission-label">{{MissionLine}}</div>
+        <p>One line on what the organisation actually does, taken from its own site and written to slot straight after "you are". It is spun as well, so the same fact reaches two people in two different shapes:</p>
+        <div class="mission-example"><span class="spin">{{RANDOM | running a food bank that now serves three counties | leading a food bank across three counties | behind a food bank that covers three counties}}</span></div>
+        <p>A generic opener would have read the same to all 11K. This one is the reason the first line is worth reading.</p>
       </div>
       <div class="page-cta">
         <div class="page-cta-copy">
